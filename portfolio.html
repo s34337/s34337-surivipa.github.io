@@ -2,15 +2,20 @@
 <html lang="th">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Portfolio</title>
+    <title>My Portfolio | แฟ้มสะสมผลงาน</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
 
     <style>
 
@@ -20,49 +25,216 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             font-family: "Prompt", sans-serif;
+
             color: #542238;
-            background:
-                radial-gradient(circle at 10% 10%, #ffd0e0 0%, transparent 30%),
-                radial-gradient(circle at 90% 30%, #ffc1d7 0%, transparent 30%),
-                linear-gradient(135deg, #fff8fb, #ffe8f1);
 
             min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255, 174, 202, 0.45),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(216, 27, 96, 0.13),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fffafd,
+                    #ffe7f0,
+                    #fff5f8
+                );
+
+            overflow-x: hidden;
         }
 
-        /* NAVBAR */
+
+        /* ==================================
+           BACKGROUND EFFECTS
+        ================================== */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .orb {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(5px);
+
+            animation:
+                floating 8s ease-in-out infinite;
+        }
+
+
+        .orb1 {
+
+            width: 400px;
+            height: 400px;
+
+            left: -170px;
+            top: -150px;
+
+            background: #ffadc8;
+
+            opacity: .35;
+        }
+
+
+        .orb2 {
+
+            width: 320px;
+            height: 320px;
+
+            right: -150px;
+            top: 35%;
+
+            background: #d81b60;
+
+            opacity: .10;
+
+            animation-delay: 2s;
+        }
+
+
+        .orb3 {
+
+            width: 400px;
+            height: 400px;
+
+            left: 30%;
+            bottom: -250px;
+
+            background: #ffc2d7;
+
+            opacity: .35;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        /* ==================================
+           NAVBAR
+        ================================== */
 
         nav {
+
             position: sticky;
+
             top: 0;
+
             z-index: 100;
 
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
+
+            justify-content: space-between;
 
             padding: 18px 7%;
 
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
+            background:
+                rgba(255,255,255,.75);
 
-            border-bottom: 1px solid rgba(216, 27, 96, 0.1);
+            backdrop-filter:
+                blur(20px);
+
+            border-bottom:
+                1px solid
+                rgba(216,27,96,.10);
         }
+
 
         .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
             font-family: "Kanit", sans-serif;
-            font-size: 22px;
+
+            font-size: 21px;
+
             font-weight: 600;
-            color: #a91552;
+
+            color: #8e1745;
         }
 
+
+        .logo-icon {
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a51250,
+                    #ed4c83
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(216,27,96,.25);
+        }
+
+
         .back {
+
             text-decoration: none;
+
             color: #a91552;
 
             padding: 10px 20px;
@@ -71,23 +243,37 @@
 
             background: white;
 
-            border: 1px solid #f3bfd2;
+            border:
+                1px solid
+                #f2bfd2;
 
-            transition: 0.3s;
+            transition: .3s;
         }
+
 
         .back:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.15);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(216,27,96,.15);
         }
 
-        /* HERO */
+
+        /* ==================================
+           HERO
+        ================================== */
 
         .hero {
+
             min-height: 65vh;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             text-align: center;
@@ -95,27 +281,39 @@
             padding: 80px 7%;
         }
 
+
         .hero-content {
+
             max-width: 900px;
 
-            animation: fadeUp 1s ease;
+            animation:
+                fadeUp 1s ease;
         }
+
 
         @keyframes fadeUp {
 
             from {
+
                 opacity: 0;
-                transform: translateY(40px);
+
+                transform:
+                    translateY(40px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
 
         }
 
+
         .badge {
+
             display: inline-block;
 
             padding: 10px 22px;
@@ -126,15 +324,21 @@
 
             color: #d81b60;
 
-            background: rgba(255,255,255,0.8);
+            background:
+                rgba(255,255,255,.75);
 
-            border: 1px solid #f4bfd2;
+            border:
+                1px solid
+                #f4bfd2;
         }
 
-        h1 {
+
+        .hero h1 {
+
             font-family: "Kanit", sans-serif;
 
-            font-size: clamp(55px, 9vw, 105px);
+            font-size:
+                clamp(55px, 9vw, 105px);
 
             line-height: 1;
 
@@ -143,15 +347,20 @@
             margin-bottom: 25px;
         }
 
-        h1 span {
+
+        .hero h1 span {
+
             color: #d81b60;
 
             text-shadow:
-                0 10px 30px rgba(216, 27, 96, 0.2);
+                0 10px 30px
+                rgba(216,27,96,.2);
         }
 
-        .hero p {
-            max-width: 700px;
+
+        .hero-description {
+
+            max-width: 720px;
 
             margin: auto;
 
@@ -162,29 +371,39 @@
             color: #7c5b69;
         }
 
-        /* MENU */
+
+        /* ==================================
+           SECTION
+        ================================== */
 
         .section {
-            max-width: 1300px;
+
+            max-width: 1400px;
 
             margin: auto;
 
             padding: 80px 7%;
         }
 
-        .title {
+
+        .section-title {
+
             text-align: center;
 
             margin-bottom: 50px;
         }
 
-        .title small {
+
+        .section-title small {
+
             color: #d81b60;
 
             letter-spacing: 3px;
         }
 
-        .title h2 {
+
+        .section-title h2 {
+
             font-family: "Kanit", sans-serif;
 
             font-size: 45px;
@@ -194,7 +413,13 @@
             margin-top: 8px;
         }
 
-        .cards {
+
+        /* ==================================
+           MENU
+        ================================== */
+
+        .menu-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -203,56 +428,69 @@
             gap: 22px;
         }
 
-        .card {
+
+        .menu-card {
+
+            position: relative;
+
+            padding: 28px;
+
+            min-height: 250px;
+
+            border-radius: 28px;
+
             text-decoration: none;
 
             color: inherit;
 
-            padding: 30px;
-
-            min-height: 270px;
-
-            border-radius: 28px;
-
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,0.9),
-                    rgba(255,228,238,0.75)
+                    rgba(255,255,255,.9),
+                    rgba(255,226,237,.75)
                 );
 
-            border: 1px solid white;
+            border:
+                1px solid white;
 
             box-shadow:
-                0 20px 50px rgba(107, 29, 57, 0.1);
+                0 20px 50px
+                rgba(107,29,57,.10);
 
-            transition: 0.4s;
-
-            position: relative;
+            transition: .4s;
 
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-12px);
+
+        .menu-card:hover {
+
+            transform:
+                translateY(-10px);
 
             box-shadow:
-                0 30px 65px rgba(190, 25, 85, 0.18);
+                0 30px 65px
+                rgba(190,25,85,.18);
         }
 
-        .icon {
-            width: 70px;
-            height: 70px;
+
+        .menu-icon {
+
+            width: 65px;
+            height: 65px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             color: white;
 
-            font-size: 30px;
+            font-size: 28px;
+
+            margin-bottom: 20px;
 
             background:
                 linear-gradient(
@@ -261,13 +499,14 @@
                     #ec407a
                 );
 
-            margin-bottom: 25px;
-
             box-shadow:
-                0 12px 30px rgba(216, 27, 96, 0.25);
+                0 12px 30px
+                rgba(216,27,96,.25);
         }
 
-        .card h3 {
+
+        .menu-card h3 {
+
             font-family: "Kanit", sans-serif;
 
             font-size: 23px;
@@ -277,7 +516,9 @@
             margin-bottom: 10px;
         }
 
-        .card p {
+
+        .menu-card p {
+
             font-size: 14px;
 
             line-height: 1.8;
@@ -285,10 +526,13 @@
             color: #80606e;
         }
 
-        .arrow {
+
+        .menu-arrow {
+
             position: absolute;
 
-            right: 25px;
+            right: 23px;
+
             bottom: 20px;
 
             color: #d81b60;
@@ -296,67 +540,219 @@
             font-size: 25px;
         }
 
-        /* CONTENT */
 
-        .content {
-            margin-top: 30px;
+        /* ==================================
+           WORK CARDS
+        ================================== */
+
+        .work-grid {
 
             display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 25px;
+            gap: 28px;
         }
 
-        .content-card {
-            padding: 30px;
 
-            border-radius: 25px;
+        .work-card {
+
+            overflow: hidden;
+
+            border-radius: 28px;
 
             background:
-                rgba(255,255,255,0.72);
+                rgba(255,255,255,.75);
 
-            border: 1px solid white;
+            border:
+                1px solid white;
 
             box-shadow:
-                0 15px 40px rgba(90, 20, 50, 0.08);
+                0 20px 50px
+                rgba(90,20,50,.09);
 
-            transition: 0.3s;
+            transition: .4s;
         }
 
-        .content-card:hover {
-            transform: translateY(-8px);
+
+        .work-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            box-shadow:
+                0 30px 65px
+                rgba(180,25,80,.18);
         }
 
-        .content-card .emoji {
-            font-size: 38px;
 
-            margin-bottom: 15px;
+        /* ==================================
+           WORK IMAGE
+        ================================== */
+
+        .work-image {
+
+            width: 100%;
+
+            height: 240px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc4d8,
+                    #fff0f5
+                );
         }
 
-        .content-card h3 {
+
+        .work-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: .5s;
+        }
+
+
+        .work-card:hover
+        .work-image img {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        .image-number {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            padding: 6px 12px;
+
+            border-radius: 50px;
+
+            color: white;
+
+            font-size: 12px;
+
+            background:
+                rgba(142,23,69,.8);
+
+            backdrop-filter:
+                blur(8px);
+        }
+
+
+        /* ==================================
+           WORK CONTENT
+        ================================== */
+
+        .work-content {
+
+            padding: 25px;
+        }
+
+
+        .work-category {
+
+            display: inline-block;
+
+            padding: 5px 12px;
+
+            border-radius: 50px;
+
+            color: #d81b60;
+
+            font-size: 12px;
+
+            background: #fff0f5;
+
+            margin-bottom: 12px;
+        }
+
+
+        .work-content h3 {
+
             font-family: "Kanit", sans-serif;
 
-            color: #a91552;
+            font-size: 23px;
 
-            font-size: 22px;
+            color: #651d3a;
 
             margin-bottom: 10px;
         }
 
-        .content-card p {
+
+        .work-content p {
+
             color: #80606e;
 
+            font-size: 14px;
+
             line-height: 1.8;
+
+            margin-bottom: 20px;
         }
 
-        /* QUOTE */
+
+        .work-button {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a51250,
+                    #e83e78
+                );
+
+            transition: .3s;
+        }
+
+
+        .work-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(216,27,96,.25);
+        }
+
+
+        /* ==================================
+           QUOTE
+        ================================== */
 
         .quote {
+
             max-width: 1000px;
 
-            margin: 80px auto;
+            margin: 90px auto;
 
             padding: 60px 30px;
 
@@ -374,10 +770,13 @@
                 );
 
             box-shadow:
-                0 30px 70px rgba(175, 25, 80, 0.25);
+                0 30px 70px
+                rgba(175,25,80,.25);
         }
 
+
         .quote h2 {
+
             font-family: "Kanit", sans-serif;
 
             font-size: 35px;
@@ -385,79 +784,102 @@
             margin-bottom: 15px;
         }
 
+
         .quote p {
-            opacity: 0.9;
+
+            opacity: .9;
 
             line-height: 1.8;
         }
 
-        /* FOOTER */
+
+        /* ==================================
+           FOOTER
+        ================================== */
 
         footer {
-            padding: 45px 7%;
+
+            padding: 50px 7%;
 
             text-align: center;
 
             color: #8d6877;
 
-            background: rgba(255,255,255,0.5);
+            background:
+                rgba(255,255,255,.55);
 
-            border-top: 1px solid rgba(216,27,96,0.1);
+            border-top:
+                1px solid
+                rgba(216,27,96,.1);
         }
 
+
         footer strong {
+
             color: #d81b60;
         }
 
-        /* MOBILE */
 
-        @media (max-width: 900px) {
+        /* ==================================
+           RESPONSIVE
+        ================================== */
 
-            .cards {
+        @media(max-width:1000px) {
+
+            .menu-grid {
+
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
-            .content {
+            .work-grid {
+
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
         }
 
-        @media (max-width: 600px) {
+
+        @media(max-width:600px) {
 
             nav {
-                padding: 15px 5%;
-            }
 
-            .logo {
-                font-size: 18px;
+                padding:
+                    15px 5%;
             }
 
             .hero {
-                padding: 70px 5%;
+
+                padding:
+                    70px 5%;
             }
 
-            .hero p {
+            .hero-description {
+
                 font-size: 15px;
             }
 
             .section {
-                padding: 60px 5%;
+
+                padding:
+                    60px 5%;
             }
 
-            .cards,
-            .content {
+            .menu-grid,
+            .work-grid {
+
                 grid-template-columns: 1fr;
             }
 
-            .title h2 {
+            .section-title h2 {
+
                 font-size: 35px;
             }
 
-            .quote {
-                margin: 50px 5%;
+            .work-image {
+
+                height: 220px;
             }
 
         }
@@ -470,16 +892,40 @@
 <body>
 
 
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="orb orb1"></div>
+
+        <div class="orb orb2"></div>
+
+        <div class="orb orb3"></div>
+
+    </div>
+
+
     <!-- NAVIGATION -->
 
     <nav>
 
         <div class="logo">
-            ✦ MY PORTFOLIO
+
+            <div class="logo-icon">
+                P
+            </div>
+
+            MY PORTFOLIO
+
         </div>
 
-        <a href="index.html" class="back">
+
+        <a
+            href="index.html"
+            class="back">
+
             ← หน้าหลัก
+
         </a>
 
     </nav>
@@ -492,18 +938,30 @@
         <div class="hero-content">
 
             <div class="badge">
+
                 ✦ WELCOME TO MY PORTFOLIO ✦
+
             </div>
 
+
             <h1>
-                My <span>Portfolio</span>
+
+                My
+
+                <span>
+                    Portfolio
+                </span>
+
             </h1>
 
-            <p>
-                ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน
-                ที่รวบรวมเรื่องราว ประสบการณ์ ความสามารถ
-                กิจกรรม ผลงานจิตอาสา และผลงานด้านวิชาการ
-                ทุกผลงานคือความตั้งใจและอีกหนึ่งก้าวของการเรียนรู้
+
+            <p class="hero-description">
+
+                แฟ้มสะสมผลงานที่รวบรวมตัวตน
+                ความสามารถ ประสบการณ์
+                กิจกรรม จิตอาสา และผลงานทางวิชาการ
+                ที่สะท้อนความตั้งใจและการพัฒนาตัวเอง
+
             </p>
 
         </div>
@@ -515,25 +973,27 @@
 
     <section class="section">
 
-        <div class="title">
+        <div class="section-title">
 
             <small>
                 EXPLORE MY JOURNEY
             </small>
 
             <h2>
-                แฟ้มสะสมผลงาน
+                เลือกชมผลงาน
             </h2>
 
         </div>
 
 
-        <div class="cards">
+        <div class="menu-grid">
 
 
-            <a href="#profile" class="card">
+            <a
+                href="#profile"
+                class="menu-card">
 
-                <div class="icon">
+                <div class="menu-icon">
                     ♡
                 </div>
 
@@ -542,20 +1002,23 @@
                 </h3>
 
                 <p>
-                    ข้อมูลส่วนตัว ประวัติการศึกษา
-                    ความสนใจ ความสามารถ และเป้าหมายในอนาคต
+                    ข้อมูลส่วนตัว
+                    ประวัติการศึกษา
+                    ความสนใจ และเป้าหมาย
                 </p>
 
-                <div class="arrow">
+                <div class="menu-arrow">
                     →
                 </div>
 
             </a>
 
 
-            <a href="#activities" class="card">
+            <a
+                href="#activities"
+                class="menu-card">
 
-                <div class="icon">
+                <div class="menu-icon">
                     ✦
                 </div>
 
@@ -564,20 +1027,22 @@
                 </h3>
 
                 <p>
-                    รวมกิจกรรม การแข่งขัน
-                    การทำงานร่วมกับผู้อื่น และประสบการณ์ต่าง ๆ
+                    รวมกิจกรรม
+                    การแข่งขัน และประสบการณ์
                 </p>
 
-                <div class="arrow">
+                <div class="menu-arrow">
                     →
                 </div>
 
             </a>
 
 
-            <a href="#volunteer" class="card">
+            <a
+                href="#volunteer"
+                class="menu-card">
 
-                <div class="icon">
+                <div class="menu-icon">
                     ♡
                 </div>
 
@@ -586,20 +1051,22 @@
                 </h3>
 
                 <p>
-                    กิจกรรมเพื่อสังคม การแบ่งปัน
-                    และการช่วยเหลือผู้อื่น
+                    การทำประโยชน์เพื่อสังคม
+                    การแบ่งปัน และการช่วยเหลือ
                 </p>
 
-                <div class="arrow">
+                <div class="menu-arrow">
                     →
                 </div>
 
             </a>
 
 
-            <a href="#academic" class="card">
+            <a
+                href="#academic"
+                class="menu-card">
 
-                <div class="icon">
+                <div class="menu-icon">
                     ✧
                 </div>
 
@@ -608,11 +1075,11 @@
                 </h3>
 
                 <p>
-                    โครงงาน ผลงานการเรียน
-                    การแข่งขัน และรางวัลทางวิชาการ
+                    โครงงาน รางวัล
+                    การแข่งขัน และผลงานการเรียน
                 </p>
 
-                <div class="arrow">
+                <div class="menu-arrow">
                     →
                 </div>
 
@@ -624,11 +1091,15 @@
     </section>
 
 
-    <!-- PROFILE -->
+    <!-- ==========================
+         PROFILE
+    =========================== -->
 
-    <section class="section" id="profile">
+    <section
+        class="section"
+        id="profile">
 
-        <div class="title">
+        <div class="section-title">
 
             <small>
                 ABOUT ME
@@ -641,61 +1112,131 @@
         </div>
 
 
-        <div class="content">
+        <div class="work-grid">
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    👤
+                <div class="work-image">
+
+                    <!-- เปลี่ยน profile.jpg เป็นรูปของคุณ -->
+
+                    <img
+                        src="profile.jpg"
+                        alt="รูปโปรไฟล์">
+
                 </div>
 
-                <h3>
-                    ข้อมูลส่วนตัว
-                </h3>
 
-                <p>
-                    ชื่อ - นามสกุล : Your Name<br>
-                    ชื่อเล่น : Your Nickname<br>
-                    วันเกิด : XX / XX / XXXX
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        PROFILE
+                    </span>
+
+                    <h3>
+                        ข้อมูลส่วนตัว
+                    </h3>
+
+                    <p>
+
+                        ชื่อ - นามสกุล :
+                        Your Name
+
+                        <br>
+
+                        ชื่อเล่น :
+                        Your Nickname
+
+                        <br>
+
+                        โรงเรียน :
+                        Your School
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    🎓
+                <div class="work-image">
+
+                    <!-- เปลี่ยน education.jpg -->
+
+                    <img
+                        src="education.jpg"
+                        alt="ประวัติการศึกษา">
+
                 </div>
 
-                <h3>
-                    ประวัติการศึกษา
-                </h3>
 
-                <p>
-                    โรงเรียน : Your School<br>
-                    ระดับชั้น : Your Level<br>
-                    สายการเรียน : Your Program
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        EDUCATION
+                    </span>
+
+                    <h3>
+                        ประวัติการศึกษา
+                    </h3>
+
+                    <p>
+
+                        โรงเรียน :
+                        Your School
+
+                        <br>
+
+                        ระดับชั้น :
+                        Your Level
+
+                        <br>
+
+                        สายการเรียน :
+                        Your Program
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    💡
+                <div class="work-image">
+
+                    <!-- เปลี่ยน goal.jpg -->
+
+                    <img
+                        src="goal.jpg"
+                        alt="เป้าหมาย">
+
                 </div>
 
-                <h3>
-                    ความสนใจ
-                </h3>
 
-                <p>
-                    Technology • Design • Science
-                    • Arts • Languages
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        GOAL
+                    </span>
+
+                    <h3>
+                        เป้าหมายในอนาคต
+                    </h3>
+
+                    <p>
+
+                        เขียนเกี่ยวกับความฝัน
+                        เป้าหมาย
+                        และสิ่งที่อยากทำในอนาคต
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -705,11 +1246,15 @@
     </section>
 
 
-    <!-- ACTIVITIES -->
+    <!-- ==========================
+         ACTIVITIES
+    =========================== -->
 
-    <section class="section" id="activities">
+    <section
+        class="section"
+        id="activities">
 
-        <div class="title">
+        <div class="section-title">
 
             <small>
                 ACTIVITIES
@@ -722,60 +1267,158 @@
         </div>
 
 
-        <div class="content">
+        <div class="work-grid">
 
 
-            <div class="content-card">
+            <!-- ผลงาน 1 -->
 
-                <div class="emoji">
-                    🏆
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <!--
+                        เปลี่ยน activity1.jpg
+                        เป็นชื่อรูปของคุณ
+                    -->
+
+                    <img
+                        src="activity1.jpg"
+                        alt="กิจกรรมที่ 1">
+
+                    <div class="image-number">
+                        ACTIVITY 01
+                    </div>
+
                 </div>
 
-                <h3>
-                    กิจกรรมที่ 01
-                </h3>
 
-                <p>
-                    ใส่ชื่อกิจกรรม
-                    รายละเอียด หน้าที่
-                    และสิ่งที่ได้รับจากกิจกรรม
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        ACTIVITIES
+                    </span>
+
+                    <h3>
+                        ชื่อกิจกรรมที่ 1
+                    </h3>
+
+                    <p>
+
+                        เขียนรายละเอียดกิจกรรม
+                        หน้าที่ของคุณ
+                        และสิ่งที่ได้รับจากกิจกรรม
+
+                    </p>
+
+
+                    <!-- ถ้าไม่ต้องการปุ่ม ลบส่วนนี้ได้ -->
+
+                    <a
+                        href="#"
+                        class="work-button">
+
+                        ดูรายละเอียด
+
+                    </a>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <!-- ผลงาน 2 -->
 
-                <div class="emoji">
-                    🎨
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="activity2.jpg"
+                        alt="กิจกรรมที่ 2">
+
+                    <div class="image-number">
+                        ACTIVITY 02
+                    </div>
+
                 </div>
 
-                <h3>
-                    กิจกรรมที่ 02
-                </h3>
 
-                <p>
-                    ใส่รายละเอียดกิจกรรม
-                    และประสบการณ์ที่ได้รับ
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        ACTIVITIES
+                    </span>
+
+                    <h3>
+                        ชื่อกิจกรรมที่ 2
+                    </h3>
+
+                    <p>
+
+                        เขียนรายละเอียดกิจกรรม
+                        บทบาท
+                        และประสบการณ์ที่ได้รับ
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="work-button">
+
+                        ดูรายละเอียด
+
+                    </a>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <!-- ผลงาน 3 -->
 
-                <div class="emoji">
-                    🌟
+            <div class="work-card">
+
+                <div class="work-image">
+
+                    <img
+                        src="activity3.jpg"
+                        alt="กิจกรรมที่ 3">
+
+                    <div class="image-number">
+                        ACTIVITY 03
+                    </div>
+
                 </div>
 
-                <h3>
-                    กิจกรรมที่ 03
-                </h3>
 
-                <p>
-                    ใส่กิจกรรมการแข่งขัน
-                    ชมรม ค่าย หรือกิจกรรมอื่น ๆ
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        ACTIVITIES
+                    </span>
+
+                    <h3>
+                        ชื่อกิจกรรมที่ 3
+                    </h3>
+
+                    <p>
+
+                        เขียนรายละเอียดกิจกรรม
+                        และสิ่งที่คุณได้เรียนรู้
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="work-button">
+
+                        ดูรายละเอียด
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -785,11 +1428,15 @@
     </section>
 
 
-    <!-- VOLUNTEER -->
+    <!-- ==========================
+         VOLUNTEER
+    =========================== -->
 
-    <section class="section" id="volunteer">
+    <section
+        class="section"
+        id="volunteer">
 
-        <div class="title">
+        <div class="section-title">
 
             <small>
                 VOLUNTEER
@@ -802,59 +1449,119 @@
         </div>
 
 
-        <div class="content">
+        <div class="work-grid">
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    💗
+                <div class="work-image">
+
+                    <img
+                        src="volunteer1.jpg"
+                        alt="กิจกรรมจิตอาสา">
+
+                    <div class="image-number">
+                        VOLUNTEER 01
+                    </div>
+
                 </div>
 
-                <h3>
-                    กิจกรรมจิตอาสา
-                </h3>
 
-                <p>
-                    ใส่รายละเอียดกิจกรรม
-                    วันเวลา สถานที่ และหน้าที่ของคุณ
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        VOLUNTEER
+                    </span>
+
+                    <h3>
+                        กิจกรรมจิตอาสา
+                    </h3>
+
+                    <p>
+
+                        ใส่รายละเอียด
+                        สถานที่ วันเวลา
+                        หน้าที่ และประโยชน์ต่อสังคม
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    🌱
+                <div class="work-image">
+
+                    <img
+                        src="volunteer2.jpg"
+                        alt="กิจกรรมเพื่อสังคม">
+
+                    <div class="image-number">
+                        VOLUNTEER 02
+                    </div>
+
                 </div>
 
-                <h3>
-                    เพื่อสังคม
-                </h3>
 
-                <p>
-                    ใส่ประสบการณ์การช่วยเหลือ
-                    ชุมชน โรงเรียน หรือสิ่งแวดล้อม
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        SOCIAL
+                    </span>
+
+                    <h3>
+                        กิจกรรมเพื่อสังคม
+                    </h3>
+
+                    <p>
+
+                        เล่าประสบการณ์
+                        การช่วยเหลือชุมชน
+                        หรือการทำประโยชน์เพื่อผู้อื่น
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    🤝
+                <div class="work-image">
+
+                    <img
+                        src="volunteer3.jpg"
+                        alt="การแบ่งปัน">
+
+                    <div class="image-number">
+                        VOLUNTEER 03
+                    </div>
+
                 </div>
 
-                <h3>
-                    การแบ่งปัน
-                </h3>
 
-                <p>
-                    เล่าเรื่องราวการช่วยเหลือผู้อื่น
-                    และสิ่งที่คุณได้เรียนรู้
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        SHARING
+                    </span>
+
+                    <h3>
+                        การแบ่งปัน
+                    </h3>
+
+                    <p>
+
+                        ใส่เรื่องราว
+                        ประสบการณ์
+                        และสิ่งที่ได้เรียนรู้
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -864,11 +1571,15 @@
     </section>
 
 
-    <!-- ACADEMIC -->
+    <!-- ==========================
+         ACADEMIC
+    =========================== -->
 
-    <section class="section" id="academic">
+    <section
+        class="section"
+        id="academic">
 
-        <div class="title">
+        <div class="section-title">
 
             <small>
                 ACADEMIC
@@ -881,61 +1592,122 @@
         </div>
 
 
-        <div class="content">
+        <div class="work-grid">
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    📚
+                <div class="work-image">
+
+                    <img
+                        src="academic1.jpg"
+                        alt="โครงงาน">
+
+                    <div class="image-number">
+                        ACADEMIC 01
+                    </div>
+
                 </div>
 
-                <h3>
-                    โครงงาน
-                </h3>
 
-                <p>
-                    ใส่ชื่อโครงงาน
-                    แนวคิด วิธีการทำงาน
-                    และผลลัพธ์
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        PROJECT
+                    </span>
+
+                    <h3>
+                        โครงงาน
+                    </h3>
+
+                    <p>
+
+                        ใส่ชื่อโครงงาน
+                        แนวคิด
+                        วิธีการดำเนินงาน
+                        และผลลัพธ์
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    🥇
+                <div class="work-image">
+
+                    <img
+                        src="academic2.jpg"
+                        alt="รางวัล">
+
+                    <div class="image-number">
+                        ACADEMIC 02
+                    </div>
+
                 </div>
 
-                <h3>
-                    รางวัล
-                </h3>
 
-                <p>
-                    ใส่ชื่อการแข่งขัน
-                    ระดับการแข่งขัน
-                    และรางวัลที่ได้รับ
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        AWARD
+                    </span>
+
+                    <h3>
+                        รางวัลและการแข่งขัน
+                    </h3>
+
+                    <p>
+
+                        ใส่ชื่อการแข่งขัน
+                        ระดับการแข่งขัน
+                        ปีที่ได้รับ
+                        และรางวัล
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="content-card">
+            <div class="work-card">
 
-                <div class="emoji">
-                    💡
+                <div class="work-image">
+
+                    <img
+                        src="academic3.jpg"
+                        alt="ผลงานวิชาการ">
+
+                    <div class="image-number">
+                        ACADEMIC 03
+                    </div>
+
                 </div>
 
-                <h3>
-                    ผลงานการเรียน
-                </h3>
 
-                <p>
-                    รวมรายงาน งานวิจัย
-                    สิ่งประดิษฐ์ และผลงานที่ภาคภูมิใจ
-                </p>
+                <div class="work-content">
+
+                    <span class="work-category">
+                        ACHIEVEMENT
+                    </span>
+
+                    <h3>
+                        ผลงานการเรียน
+                    </h3>
+
+                    <p>
+
+                        ใส่รายงาน
+                        งานวิจัย
+                        สิ่งประดิษฐ์
+                        หรือผลงานที่ภาคภูมิใจ
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -950,12 +1722,19 @@
     <section class="quote">
 
         <h2>
-            Every Achievement Starts With A Dream.
+
+            Every Achievement
+            Starts With A Dream.
+
         </h2>
 
+
         <p>
+
             ทุกความสำเร็จเริ่มต้นจากความฝัน
-            ความพยายาม และความกล้าที่จะลงมือทำ
+            ความพยายาม
+            และความกล้าที่จะลงมือทำ
+
         </p>
 
     </section>
@@ -966,7 +1745,11 @@
     <footer>
 
         © 2026
-        <strong>Your Name</strong>
+
+        <strong>
+            Your Name
+        </strong>
+
         — My Personal Portfolio
 
     </footer>
