@@ -1,760 +1,1111 @@
-
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Portfolio | แฟ้มสะสมผลงาน</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --pink: #d81b60;
-      --pink-dark: #9c1246;
-      --pink-light: #ffe4ef;
-      --pink-soft: #fff4f8;
-      --white: #ffffff;
-      --text: #3d2630;
-    }
-
-    body {
-      font-family: "Prompt", sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(216, 27, 96, 0.15), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(255, 182, 210, 0.35), transparent 35%),
-        linear-gradient(135deg, #fff8fb, #ffe8f1);
-    }
-
-    /* ---------- Background Decoration ---------- */
-
-    .background {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: 0.45;
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .circle.one {
-      width: 350px;
-      height: 350px;
-      background: #ffc1d8;
-      top: -100px;
-      left: -100px;
-    }
-
-    .circle.two {
-      width: 250px;
-      height: 250px;
-      background: #e91e63;
-      right: -80px;
-      top: 20%;
-      opacity: 0.12;
-      animation-delay: 2s;
-    }
-
-    .circle.three {
-      width: 300px;
-      height: 300px;
-      background: #ff9fc1;
-      bottom: -120px;
-      left: 30%;
-      opacity: 0.2;
-      animation-delay: 4s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-
-      50% {
-        transform: translateY(-25px) scale(1.05);
-      }
-    }
-
-    /* ---------- Navigation ---------- */
-
-    nav {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      padding: 24px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: "Kanit", sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--pink-dark);
-    }
-
-    .logo-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 21px;
-      background: linear-gradient(135deg, var(--pink), #ef5b91);
-      box-shadow: 0 8px 25px rgba(216, 27, 96, 0.25);
-    }
-
-    .nav-text {
-      color: #9a6578;
-      font-size: 14px;
-    }
-
-    /* ---------- Hero ---------- */
-
-    .hero {
-      position: relative;
-      z-index: 2;
-      min-height: calc(100vh - 90px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 7% 100px;
-    }
-
-    .hero-container {
-      width: 100%;
-      max-width: 1250px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .content {
-      animation: fadeUp 1s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 18px;
-      border: 1px solid rgba(216, 27, 96, 0.18);
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.65);
-      color: var(--pink);
-      font-size: 13px;
-      margin-bottom: 25px;
-      backdrop-filter: blur(10px);
-    }
-
-    .badge span {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--pink);
-      box-shadow: 0 0 10px var(--pink);
-    }
-
-    h1 {
-      font-family: "Kanit", sans-serif;
-      font-size: clamp(48px, 6vw, 82px);
-      line-height: 1.05;
-      font-weight: 700;
-      color: #54172e;
-      margin-bottom: 25px;
-      letter-spacing: -1px;
-    }
-
-    h1 .highlight {
-      color: var(--pink);
-      position: relative;
-    }
-
-    h1 .highlight::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 100%;
-      height: 7px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, #e91e63, #ff9fc1);
-      opacity: 0.45;
-    }
-
-    .description {
-      max-width: 650px;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #755766;
-      margin-bottom: 35px;
-    }
-
-    /* ---------- Buttons ---------- */
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .portfolio-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 16px 30px;
-      border-radius: 15px;
-      text-decoration: none;
-      color: white;
-      font-family: "Prompt", sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      background: linear-gradient(135deg, #c2185b, #e83e78);
-      box-shadow:
-        0 15px 35px rgba(194, 24, 91, 0.28),
-        inset 0 1px rgba(255,255,255,0.3);
-      transition: 0.3s ease;
-      overflow: hidden;
-    }
-
-    .portfolio-btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 70%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.4),
-        transparent
-      );
-      transform: skewX(-20deg);
-      transition: 0.6s;
-    }
-
-    .portfolio-btn:hover::before {
-      left: 130%;
-    }
-
-    .portfolio-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(194, 24, 91, 0.35);
-    }
-
-    .arrow {
-      font-size: 20px;
-      transition: 0.3s;
-    }
-
-    .portfolio-btn:hover .arrow {
-      transform: translateX(5px);
-    }
-
-    .secondary-btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 16px 25px;
-      border-radius: 15px;
-      color: var(--pink-dark);
-      text-decoration: none;
-      border: 1px solid rgba(194, 24, 91, 0.18);
-      background: rgba(255,255,255,0.55);
-      transition: 0.3s;
-    }
-
-    .secondary-btn:hover {
-      background: white;
-      transform: translateY(-3px);
-    }
-
-    /* ---------- Portfolio Preview ---------- */
-
-    .visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeUp 1.2s ease forwards;
-    }
-
-    .card-wrapper {
-      position: relative;
-      width: min(430px, 90vw);
-      height: 520px;
-      perspective: 1000px;
-    }
-
-    .portfolio-card {
-      position: absolute;
-      inset: 0;
-      border-radius: 30px;
-      padding: 30px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.95),
-          rgba(255,235,243,0.9)
-        );
-      border: 1px solid rgba(255,255,255,0.9);
-      box-shadow:
-        0 30px 70px rgba(122, 28, 65, 0.15),
-        inset 0 1px 0 white;
-      transform: rotate(4deg);
-      transition: 0.5s ease;
-    }
-
-    .card-wrapper:hover .portfolio-card {
-      transform: rotate(0deg) translateY(-10px);
-    }
-
-    .card-decoration {
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #e91e63, #ffb3cb);
-      top: -45px;
-      right: -45px;
-      opacity: 0.85;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 35px;
-    }
-
-    .mini-logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 17px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 25px;
-      background: linear-gradient(135deg, #ad1457, #ec407a);
-      box-shadow: 0 10px 25px rgba(173,20,87,0.25);
-    }
-
-    .year {
-      font-size: 13px;
-      color: #a56b80;
-      letter-spacing: 1px;
-    }
-
-    .card-title {
-      font-family: "Kanit", sans-serif;
-      font-size: 38px;
-      line-height: 1.15;
-      color: #5b1933;
-      margin-bottom: 12px;
-    }
-
-    .card-subtitle {
-      color: #9b687b;
-      font-size: 14px;
-      margin-bottom: 35px;
-    }
-
-    .profile-placeholder {
-      height: 190px;
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          135deg,
-          #f7b2c9,
-          #ffe5ee
-        );
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #ad426d;
-      font-size: 55px;
-      margin-bottom: 25px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .profile-placeholder::before {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border: 1px solid rgba(173,66,109,0.2);
-      border-radius: 50%;
-    }
-
-    .profile-placeholder::after {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border: 1px solid rgba(173,66,109,0.18);
-      border-radius: 50%;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #9b687b;
-      font-size: 12px;
-    }
-
-    .signature {
-      font-family: cursive;
-      font-size: 20px;
-      color: var(--pink);
-    }
-
-    /* ---------- Floating Elements ---------- */
-
-    .floating {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 20px;
-      color: var(--pink);
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 15px 35px rgba(90,20,50,0.1);
-      backdrop-filter: blur(10px);
-      font-size: 24px;
-      animation: floating 4s ease-in-out infinite;
-    }
-
-    .floating.one {
-      top: 40px;
-      left: -30px;
-    }
-
-    .floating.two {
-      bottom: 80px;
-      right: -35px;
-      animation-delay: 1.5s;
-    }
-
-    .floating.three {
-      top: 50%;
-      right: -60px;
-      width: 45px;
-      height: 45px;
-      border-radius: 15px;
-      font-size: 18px;
-      animation-delay: 2.5s;
-    }
-
-    @keyframes floating {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-15px) rotate(5deg);
-      }
-    }
-
-    /* ---------- Bottom ---------- */
-
-    .scroll {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #a06d80;
-      font-size: 12px;
-      letter-spacing: 2px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      z-index: 5;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 35px;
-      background: linear-gradient(#d81b60, transparent);
-    }
-
-    /* ---------- Responsive ---------- */
-
-    @media (max-width: 900px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .visual {
-        margin-top: 20px;
-      }
-
-      .floating.one {
-        left: 0;
-      }
-
-      .floating.two {
-        right: 0;
-      }
-
-      .floating.three {
-        right: -10px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      nav {
-        padding: 18px 5%;
-      }
-
-      .nav-text {
-        display: none;
-      }
-
-      .hero {
-        padding: 40px 5% 80px;
-      }
-
-      h1 {
-        font-size: 46px;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .portfolio-btn,
-      .secondary-btn {
-        width: 100%;
-      }
-
-      .card-wrapper {
-        height: 450px;
-      }
-
-      .portfolio-card {
-        padding: 23px;
-      }
-
-      .profile-placeholder {
-        height: 150px;
-      }
-
-      .floating {
-        display: none;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio | แฟ้มสะสมผลงาน</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Prompt", sans-serif;
+            min-height: 100vh;
+            color: #542238;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255, 174, 202, 0.45),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(216, 27, 96, 0.15),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fffafd,
+                    #ffe6f0,
+                    #fff5f8
+                );
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================== */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 400px;
+            height: 400px;
+            background: #ffb4cc;
+            top: -180px;
+            left: -150px;
+            opacity: .35;
+        }
+
+        .orb2 {
+            width: 300px;
+            height: 300px;
+            background: #d81b60;
+            right: -120px;
+            top: 20%;
+            opacity: .10;
+            animation-delay: 2s;
+        }
+
+        .orb3 {
+            width: 350px;
+            height: 350px;
+            background: #ffbfd5;
+            left: 35%;
+            bottom: -200px;
+            opacity: .3;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            position: relative;
+            z-index: 10;
+
+            width: 100%;
+
+            padding: 22px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Kanit", sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+
+            color: #8e1745;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 15px;
+
+            color: white;
+            font-size: 23px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a51250,
+                    #ed4c83
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(216, 27, 96, .25);
+        }
+
+        .nav-text {
+            color: #9a6578;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            min-height: calc(100vh - 90px);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 7% 100px;
+        }
+
+        .hero-container {
+
+            width: 100%;
+            max-width: 1250px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr .9fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           TEXT
+        ========================== */
+
+        .content {
+
+            animation:
+                fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 10px 20px;
+
+            margin-bottom: 25px;
+
+            border-radius: 50px;
+
+            color: #d81b60;
+
+            background:
+                rgba(255,255,255,.75);
+
+            border:
+                1px solid
+                rgba(216,27,96,.15);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+        .badge-dot {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #d81b60;
+
+            box-shadow:
+                0 0 12px
+                #d81b60;
+        }
+
+
+        h1 {
+
+            font-family: "Kanit", sans-serif;
+
+            font-size:
+                clamp(55px, 7vw, 90px);
+
+            line-height: 1.05;
+
+            color: #542238;
+
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+
+            color: #d81b60;
+
+            position: relative;
+
+            text-shadow:
+                0 10px 30px
+                rgba(216,27,96,.18);
+        }
+
+        h1 span::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 100%;
+            height: 7px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #d81b60,
+                    #ffb3ca
+                );
+
+            opacity: .5;
+        }
+
+        .description {
+
+            max-width: 650px;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+            color: #755766;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .portfolio-button {
+
+            position: relative;
+
+            display: inline-flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 17px 32px;
+
+            border-radius: 17px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a51250,
+                    #e83e78
+                );
+
+            box-shadow:
+                0 18px 40px
+                rgba(194,24,91,.28);
+
+            transition:
+                .35s ease;
+        }
+
+        .portfolio-button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -120%;
+
+            width: 80%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.45),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition: .6s;
+        }
+
+        .portfolio-button:hover::before {
+            left: 130%;
+        }
+
+        .portfolio-button:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.02);
+
+            box-shadow:
+                0 25px 55px
+                rgba(194,24,91,.35);
+        }
+
+        .arrow {
+
+            font-size: 23px;
+
+            transition: .3s;
+        }
+
+        .portfolio-button:hover
+        .arrow {
+
+            transform:
+                translateX(6px);
+        }
+
+
+        /* =========================
+           VISUAL CARD
+        ========================== */
+
+        .visual {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation:
+                fadeUp 1.2s ease forwards;
+        }
+
+        .card-wrapper {
+
+            position: relative;
+
+            width:
+                min(430px, 90vw);
+
+            height: 520px;
+        }
+
+        .portfolio-card {
+
+            position: absolute;
+
+            inset: 0;
+
+            padding: 32px;
+
+            border-radius: 32px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.95),
+                    rgba(255,228,239,.9)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.95);
+
+            box-shadow:
+                0 35px 80px
+                rgba(91,25,51,.15);
+
+            transform:
+                rotate(4deg);
+
+            transition:
+                .5s ease;
+
+            overflow: hidden;
+        }
+
+        .card-wrapper:hover
+        .portfolio-card {
+
+            transform:
+                rotate(0deg)
+                translateY(-10px);
+        }
+
+        .card-glow {
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            right: -70px;
+            top: -70px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d81b60,
+                    #ffb5cd
+                );
+
+            opacity: .7;
+        }
+
+        .card-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 35px;
+        }
+
+        .mini-logo {
+
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 18px;
+
+            color: white;
+
+            font-size: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a51250,
+                    #ed4c83
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(216,27,96,.25);
+        }
+
+        .year {
+
+            font-size: 12px;
+
+            color: #a16a7f;
+
+            letter-spacing: 2px;
+        }
+
+        .card-title {
+
+            font-family: "Kanit", sans-serif;
+
+            font-size: 40px;
+
+            line-height: 1.1;
+
+            color: #5a1934;
+
+            margin-bottom: 10px;
+        }
+
+        .card-subtitle {
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #996a7d;
+
+            margin-bottom: 30px;
+        }
+
+        .profile {
+
+            height: 200px;
+
+            border-radius: 25px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 60px;
+
+            color: #c83c70;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc6d9,
+                    #fff1f6
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+            margin-bottom: 25px;
+        }
+
+        .profile::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(200,60,112,.2);
+        }
+
+        .card-footer {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            color: #a16a7f;
+
+            font-size: 11px;
+        }
+
+        .signature {
+
+            font-family: cursive;
+
+            font-size: 19px;
+
+            color: #d81b60;
+        }
+
+
+        /* =========================
+           FLOATING ICONS
+        ========================== */
+
+        .floating {
+
+            position: absolute;
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 20px;
+
+            color: #d81b60;
+
+            font-size: 25px;
+
+            background:
+                rgba(255,255,255,.75);
+
+            backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(90,20,50,.1);
+
+            animation:
+                floating 4s ease-in-out infinite;
+        }
+
+        .floating.one {
+
+            top: 35px;
+            left: -35px;
+        }
+
+        .floating.two {
+
+            right: -35px;
+            bottom: 80px;
+
+            animation-delay:
+                1.5s;
+        }
+
+        .floating.three {
+
+            width: 48px;
+            height: 48px;
+
+            right: -65px;
+            top: 48%;
+
+            font-size: 19px;
+
+            animation-delay:
+                2.5s;
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform:
+                    translateY(0)
+                    rotate(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(5deg);
+            }
+
+        }
+
+
+        /* =========================
+           SCROLL
+        ========================== */
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            color: #a16a7f;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-align: center;
+        }
+
+        .scroll-line {
+
+            width: 1px;
+            height: 30px;
+
+            margin: 8px auto 0;
+
+            background:
+                linear-gradient(
+                    #d81b60,
+                    transparent
+                );
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 900px) {
+
+            .hero-container {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .content {
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            .description {
+
+                font-size: 16px;
+            }
+
+            .visual {
+
+                margin-top: 30px;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            nav {
+
+                padding:
+                    18px 5%;
+            }
+
+            .nav-text {
+
+                display: none;
+            }
+
+            .hero {
+
+                padding:
+                    50px 5% 80px;
+            }
+
+            h1 {
+
+                font-size: 52px;
+            }
+
+            .description {
+
+                font-size: 15px;
+            }
+
+            .portfolio-button {
+
+                width: 100%;
+            }
+
+            .card-wrapper {
+
+                height: 440px;
+            }
+
+            .portfolio-card {
+
+                padding: 24px;
+            }
+
+            .profile {
+
+                height: 150px;
+            }
+
+            .floating {
+
+                display: none;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-  <!-- Background -->
-  <div class="background">
-    <div class="circle one"></div>
-    <div class="circle two"></div>
-    <div class="circle three"></div>
-  </div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">
-      <div class="logo-icon">P</div>
-      PORTFOLIO
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="orb orb1"></div>
+
+        <div class="orb orb2"></div>
+
+        <div class="orb orb3"></div>
+
     </div>
 
-    <div class="nav-text">
-      MY PERSONAL PORTFOLIO
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <main class="hero">
+    <!-- NAVBAR -->
 
-    <div class="hero-container">
+    <nav>
 
-      <!-- Text -->
-      <section class="content">
+        <div class="logo">
 
-        <div class="badge">
-          <span></span>
-          ยินดีต้อนรับสู่แฟ้มสะสมผลงานของฉัน
-        </div>
+            <div class="logo-icon">
+                P
+            </div>
 
-        <h1>
-          My <span class="highlight">Portfolio</span>
-        </h1>
-
-        <p class="description">
-          แฟ้มสะสมผลงานที่รวบรวมตัวตน ความสามารถ ประสบการณ์
-          กิจกรรม และผลงานที่ภาคภูมิใจของฉัน
-          พร้อมถ่ายทอดเรื่องราวเส้นทางการเรียนรู้
-          และเป้าหมายในอนาคต
-        </p>
-
-        <div class="buttons">
-
-          <!-- เปลี่ยน portfolio.html เป็นชื่อหน้าที่ต้องการ -->
-          <a href="portfolio.html" class="portfolio-btn">
-            ดูแฟ้มสะสมผลงานของฉัน
-            <span class="arrow">→</span>
-          </a>
-
-          <a href="#about" class="secondary-btn">
-            ✦ เกี่ยวกับฉัน
-          </a>
+            MY PORTFOLIO
 
         </div>
 
-      </section>
 
+        <div class="nav-text">
 
-      <!-- Portfolio Visual -->
-      <section class="visual">
-
-        <div class="card-wrapper">
-
-          <div class="floating one">✦</div>
-          <div class="floating two">♡</div>
-          <div class="floating three">✧</div>
-
-          <div class="portfolio-card">
-
-            <div class="card-decoration"></div>
-
-            <div class="card-header">
-              <div class="mini-logo">P</div>
-
-              <div class="year">
-                PORTFOLIO 2026
-              </div>
-            </div>
-
-            <div class="card-title">
-              MY<br>
-              PORTFOLIO
-            </div>
-
-            <div class="card-subtitle">
-              A collection of my journey,
-              experiences & achievements.
-            </div>
-
-            <!-- สามารถเปลี่ยนเป็นรูปตัวเองได้ -->
-            <div class="profile-placeholder">
-              ♡
-            </div>
-
-            <div class="card-footer">
-              <span>PERSONAL PORTFOLIO</span>
-              <span class="signature">Your Name</span>
-            </div>
-
-          </div>
+            PERSONAL PORTFOLIO • 2026
 
         </div>
 
-      </section>
-
-    </div>
-
-    <div class="scroll">
-      SCROLL TO EXPLORE
-      <div class="scroll-line"></div>
-    </div>
-
-  </main>
+    </nav>
 
 
-  <!-- About จุดหมายของปุ่ม "เกี่ยวกับฉัน" -->
-  <section id="about"
-    style="
-      min-height: 300px;
-      padding: 80px 7%;
-      text-align: center;
-      background: rgba(255,255,255,0.45);
-    ">
+    <!-- HERO -->
 
-    <h2 style="
-      font-family: Kanit, sans-serif;
-      color: #8e1745;
-      font-size: 36px;
-      margin-bottom: 15px;
-    ">
-      About Me
-    </h2>
+    <main class="hero">
 
-    <p style="
-      max-width: 650px;
-      margin: auto;
-      color: #765565;
-      line-height: 1.9;
-    ">
-      สวัสดีครับ/ค่ะ ฉันคือ
-      <strong style="color:#d81b60;">Your Name</strong>
-      ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน
-      สามารถใส่ประวัติการศึกษา ความสามารถ
-      กิจกรรม และผลงานต่าง ๆ ได้ที่นี่
-    </p>
+        <div class="hero-container">
 
-  </section>
+
+            <!-- LEFT -->
+
+            <div class="content">
+
+
+                <div class="badge">
+
+                    <div class="badge-dot"></div>
+
+                    ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงาน
+
+                </div>
+
+
+                <h1>
+
+                    My
+
+                    <span>
+                        Portfolio
+                    </span>
+
+                </h1>
+
+
+                <p class="description">
+
+                    แฟ้มสะสมผลงานที่รวบรวมตัวตน
+                    ความสามารถ ประสบการณ์
+                    กิจกรรม ผลงาน และความภาคภูมิใจ
+                    ของฉันตลอดเส้นทางการเรียนรู้
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <!--
+                        ปุ่มนี้จะเปิด portfolio.html
+
+                        สำคัญ:
+                        index.html และ portfolio.html
+                        ต้องอยู่ในโฟลเดอร์เดียวกัน
+                    -->
+
+                    <a
+                        href="portfolio.html"
+                        class="portfolio-button"
+                    >
+
+                        ดูแฟ้มสะสมผลงานของฉัน
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div class="visual">
+
+
+                <div class="card-wrapper">
+
+
+                    <div class="floating one">
+                        ✦
+                    </div>
+
+                    <div class="floating two">
+                        ♡
+                    </div>
+
+                    <div class="floating three">
+                        ✧
+                    </div>
+
+
+                    <div class="portfolio-card">
+
+
+                        <div class="card-glow"></div>
+
+
+                        <div class="card-header">
+
+                            <div class="mini-logo">
+                                P
+                            </div>
+
+                            <div class="year">
+                                PORTFOLIO 2026
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-title">
+
+                            MY<br>
+                            PORTFOLIO
+
+                        </div>
+
+
+                        <div class="card-subtitle">
+
+                            A collection of my journey,
+                            experiences & achievements.
+
+                        </div>
+
+
+                        <div class="profile">
+
+                            ♡
+
+                        </div>
+
+
+                        <div class="card-footer">
+
+                            <span>
+                                PERSONAL PORTFOLIO
+                            </span>
+
+                            <span class="signature">
+                                Your Name
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="scroll">
+
+            SCROLL TO EXPLORE
+
+            <div class="scroll-line"></div>
+
+        </div>
+
+    </main>
+
 
 </body>
+
 </html>
