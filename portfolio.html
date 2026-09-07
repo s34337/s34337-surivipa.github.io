@@ -2,1045 +2,467 @@
 <html lang="th">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My Portfolio | แฟ้มสะสมผลงาน</title>
+    <title>My Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <style>
 
-  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ================================
-       RESET
-    ================================= */
+        html {
+            scroll-behavior: smooth;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            font-family: "Prompt", sans-serif;
+            color: #542238;
+            background:
+                radial-gradient(circle at 10% 10%, #ffd0e0 0%, transparent 30%),
+                radial-gradient(circle at 90% 30%, #ffc1d7 0%, transparent 30%),
+                linear-gradient(135deg, #fff8fb, #ffe8f1);
 
+            min-height: 100vh;
+        }
 
-    :root {
+        /* NAVBAR */
 
-      --pink-main: #d81b60;
-      --pink-dark: #8e1745;
-      --pink-light: #ffdce9;
-      --pink-soft: #fff4f8;
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
 
-      --text-dark: #4b1c30;
-      --text: #755565;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-      --white: #ffffff;
+            padding: 18px 7%;
 
-    }
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
 
+            border-bottom: 1px solid rgba(216, 27, 96, 0.1);
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        .logo {
+            font-family: "Kanit", sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #a91552;
+        }
 
+        .back {
+            text-decoration: none;
+            color: #a91552;
 
-    body {
+            padding: 10px 20px;
 
-      font-family: "Prompt", sans-serif;
+            border-radius: 50px;
 
-      color: var(--text);
+            background: white;
 
-      background:
+            border: 1px solid #f3bfd2;
 
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(216,27,96,.18),
-          transparent 30%
-        ),
+            transition: 0.3s;
+        }
 
-        radial-gradient(
-          circle at 90% 30%,
-          rgba(255,150,190,.25),
-          transparent 30%
-        ),
+        .back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.15);
+        }
 
-        linear-gradient(
-          135deg,
-          #fffafd,
-          #ffeaf2,
-          #fff5f8
-        );
+        /* HERO */
 
-      overflow-x: hidden;
+        .hero {
+            min-height: 65vh;
 
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
+            text-align: center;
 
-    /* ================================
-       BACKGROUND
-    ================================= */
+            padding: 80px 7%;
+        }
 
-    .background {
+        .hero-content {
+            max-width: 900px;
 
-      position: fixed;
+            animation: fadeUp 1s ease;
+        }
 
-      inset: 0;
+        @keyframes fadeUp {
 
-      pointer-events: none;
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
 
-      z-index: -1;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-      overflow: hidden;
+        }
 
-    }
+        .badge {
+            display: inline-block;
 
+            padding: 10px 22px;
 
-    .orb {
+            margin-bottom: 25px;
 
-      position: absolute;
+            border-radius: 50px;
 
-      border-radius: 50%;
+            color: #d81b60;
 
-      filter: blur(4px);
+            background: rgba(255,255,255,0.8);
 
-      animation: floating 8s ease-in-out infinite;
+            border: 1px solid #f4bfd2;
+        }
 
-    }
+        h1 {
+            font-family: "Kanit", sans-serif;
 
+            font-size: clamp(55px, 9vw, 105px);
 
-    .orb1 {
+            line-height: 1;
 
-      width: 350px;
-      height: 350px;
+            color: #542238;
 
-      background: #ffb3ca;
+            margin-bottom: 25px;
+        }
 
-      top: -150px;
-      left: -100px;
+        h1 span {
+            color: #d81b60;
 
-      opacity: .35;
+            text-shadow:
+                0 10px 30px rgba(216, 27, 96, 0.2);
+        }
 
-    }
+        .hero p {
+            max-width: 700px;
 
+            margin: auto;
 
-    .orb2 {
+            font-size: 18px;
 
-      width: 300px;
-      height: 300px;
+            line-height: 1.9;
 
-      background: #e91e63;
+            color: #7c5b69;
+        }
 
-      right: -120px;
-      top: 35%;
+        /* MENU */
 
-      opacity: .10;
+        .section {
+            max-width: 1300px;
 
-      animation-delay: 2s;
+            margin: auto;
 
-    }
+            padding: 80px 7%;
+        }
 
+        .title {
+            text-align: center;
 
-    .orb3 {
+            margin-bottom: 50px;
+        }
 
-      width: 400px;
-      height: 400px;
+        .title small {
+            color: #d81b60;
 
-      background: #ffc9dc;
+            letter-spacing: 3px;
+        }
 
-      left: 30%;
-      bottom: -250px;
+        .title h2 {
+            font-family: "Kanit", sans-serif;
 
-      opacity: .3;
+            font-size: 45px;
 
-      animation-delay: 4s;
+            color: #542238;
 
-    }
+            margin-top: 8px;
+        }
 
+        .cards {
+            display: grid;
 
-    @keyframes floating {
+            grid-template-columns:
+                repeat(4, 1fr);
 
-      0%,100% {
-        transform: translateY(0);
-      }
+            gap: 22px;
+        }
 
-      50% {
-        transform: translateY(-30px);
-      }
+        .card {
+            text-decoration: none;
 
-    }
+            color: inherit;
 
+            padding: 30px;
 
-    /* ================================
-       NAVBAR
-    ================================= */
+            min-height: 270px;
 
-    nav {
+            border-radius: 28px;
 
-      position: sticky;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.9),
+                    rgba(255,228,238,0.75)
+                );
 
-      top: 0;
+            border: 1px solid white;
 
-      z-index: 100;
+            box-shadow:
+                0 20px 50px rgba(107, 29, 57, 0.1);
 
-      display: flex;
+            transition: 0.4s;
 
-      justify-content: space-between;
+            position: relative;
 
-      align-items: center;
+            overflow: hidden;
+        }
 
-      padding: 18px 7%;
+        .card:hover {
+            transform: translateY(-12px);
 
-      background: rgba(255,255,255,.72);
+            box-shadow:
+                0 30px 65px rgba(190, 25, 85, 0.18);
+        }
 
-      backdrop-filter: blur(18px);
+        .icon {
+            width: 70px;
+            height: 70px;
 
-      border-bottom: 1px solid rgba(216,27,96,.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    }
+            border-radius: 22px;
 
+            color: white;
 
-    .logo {
+            font-size: 30px;
 
-      display: flex;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ad1457,
+                    #ec407a
+                );
 
-      align-items: center;
+            margin-bottom: 25px;
 
-      gap: 12px;
+            box-shadow:
+                0 12px 30px rgba(216, 27, 96, 0.25);
+        }
 
-      font-family: Kanit;
+        .card h3 {
+            font-family: "Kanit", sans-serif;
 
-      font-size: 20px;
+            font-size: 23px;
 
-      font-weight: 600;
+            color: #651d3a;
 
-      color: var(--pink-dark);
+            margin-bottom: 10px;
+        }
 
-    }
+        .card p {
+            font-size: 14px;
 
+            line-height: 1.8;
 
-    .logo-icon {
+            color: #80606e;
+        }
 
-      width: 45px;
-      height: 45px;
+        .arrow {
+            position: absolute;
 
-      border-radius: 14px;
+            right: 25px;
+            bottom: 20px;
 
-      display: flex;
+            color: #d81b60;
 
-      align-items: center;
+            font-size: 25px;
+        }
 
-      justify-content: center;
+        /* CONTENT */
 
-      color: white;
+        .content {
+            margin-top: 30px;
 
-      font-size: 21px;
+            display: grid;
 
-      background:
-        linear-gradient(
-          135deg,
-          #b31255,
-          #ec407a
-        );
+            grid-template-columns:
+                repeat(3, 1fr);
 
-      box-shadow:
-        0 10px 30px rgba(216,27,96,.25);
+            gap: 25px;
+        }
 
-    }
+        .content-card {
+            padding: 30px;
 
+            border-radius: 25px;
 
-    .back {
+            background:
+                rgba(255,255,255,0.72);
 
-      text-decoration: none;
+            border: 1px solid white;
 
-      color: var(--pink-dark);
+            box-shadow:
+                0 15px 40px rgba(90, 20, 50, 0.08);
 
-      padding: 10px 18px;
+            transition: 0.3s;
+        }
 
-      border-radius: 50px;
+        .content-card:hover {
+            transform: translateY(-8px);
+        }
 
-      border: 1px solid rgba(216,27,96,.15);
+        .content-card .emoji {
+            font-size: 38px;
 
-      background: rgba(255,255,255,.6);
+            margin-bottom: 15px;
+        }
 
-      transition: .3s;
+        .content-card h3 {
+            font-family: "Kanit", sans-serif;
 
-    }
+            color: #a91552;
 
+            font-size: 22px;
 
-    .back:hover {
+            margin-bottom: 10px;
+        }
 
-      background: white;
+        .content-card p {
+            color: #80606e;
 
-      transform: translateY(-2px);
+            line-height: 1.8;
+        }
 
-    }
+        /* QUOTE */
 
+        .quote {
+            max-width: 1000px;
 
-    /* ================================
-       HERO
-    ================================= */
+            margin: 80px auto;
 
-    .hero {
+            padding: 60px 30px;
 
-      min-height: 70vh;
+            text-align: center;
 
-      display: flex;
+            border-radius: 35px;
 
-      align-items: center;
+            color: white;
 
-      justify-content: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #9c1246,
+                    #e83e78
+                );
 
-      text-align: center;
+            box-shadow:
+                0 30px 70px rgba(175, 25, 80, 0.25);
+        }
 
-      padding: 90px 7%;
+        .quote h2 {
+            font-family: "Kanit", sans-serif;
 
-    }
+            font-size: 35px;
 
+            margin-bottom: 15px;
+        }
 
-    .hero-content {
+        .quote p {
+            opacity: 0.9;
 
-      max-width: 950px;
+            line-height: 1.8;
+        }
 
-      animation: fadeUp 1s ease;
+        /* FOOTER */
 
-    }
+        footer {
+            padding: 45px 7%;
 
+            text-align: center;
 
-    @keyframes fadeUp {
+            color: #8d6877;
 
-      from {
+            background: rgba(255,255,255,0.5);
 
-        opacity: 0;
+            border-top: 1px solid rgba(216,27,96,0.1);
+        }
 
-        transform: translateY(40px);
+        footer strong {
+            color: #d81b60;
+        }
 
-      }
+        /* MOBILE */
 
-      to {
+        @media (max-width: 900px) {
 
-        opacity: 1;
+            .cards {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-        transform: translateY(0);
+            .content {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
-      }
+        }
 
-    }
+        @media (max-width: 600px) {
 
+            nav {
+                padding: 15px 5%;
+            }
 
-    .badge {
+            .logo {
+                font-size: 18px;
+            }
 
-      display: inline-block;
+            .hero {
+                padding: 70px 5%;
+            }
 
-      padding: 10px 22px;
+            .hero p {
+                font-size: 15px;
+            }
 
-      border-radius: 50px;
+            .section {
+                padding: 60px 5%;
+            }
 
-      color: var(--pink-main);
+            .cards,
+            .content {
+                grid-template-columns: 1fr;
+            }
 
-      background: rgba(255,255,255,.7);
+            .title h2 {
+                font-size: 35px;
+            }
 
-      border: 1px solid rgba(216,27,96,.15);
+            .quote {
+                margin: 50px 5%;
+            }
 
-      margin-bottom: 25px;
+        }
 
-      box-shadow:
-        0 10px 30px rgba(216,27,96,.08);
-
-    }
-
-
-    h1 {
-
-      font-family: Kanit;
-
-      font-size: clamp(50px,8vw,100px);
-
-      line-height: 1;
-
-      color: var(--text-dark);
-
-      margin-bottom: 25px;
-
-    }
-
-
-    h1 span {
-
-      color: var(--pink-main);
-
-      text-shadow:
-        0 10px 35px rgba(216,27,96,.2);
-
-    }
-
-
-    .hero-description {
-
-      font-size: 18px;
-
-      line-height: 1.9;
-
-      max-width: 720px;
-
-      margin: auto;
-
-      color: #775767;
-
-    }
-
-
-    /* ================================
-       SECTION
-    ================================= */
-
-    .section {
-
-      padding: 80px 7%;
-
-      max-width: 1400px;
-
-      margin: auto;
-
-    }
-
-
-    .section-title {
-
-      text-align: center;
-
-      margin-bottom: 55px;
-
-    }
-
-
-    .section-title small {
-
-      color: var(--pink-main);
-
-      letter-spacing: 3px;
-
-    }
-
-
-    .section-title h2 {
-
-      font-family: Kanit;
-
-      font-size: 45px;
-
-      color: var(--text-dark);
-
-      margin-top: 10px;
-
-    }
-
-
-    /* ================================
-       MENU CARDS
-    ================================= */
-
-    .menu-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 25px;
-
-    }
-
-
-    .menu-card {
-
-      position: relative;
-
-      min-height: 260px;
-
-      padding: 30px;
-
-      border-radius: 28px;
-
-      text-decoration: none;
-
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.88),
-          rgba(255,225,236,.65)
-        );
-
-      border: 1px solid
-        rgba(255,255,255,.9);
-
-      box-shadow:
-        0 20px 50px
-        rgba(105,25,60,.10);
-
-      transition: .4s;
-
-    }
-
-
-    .menu-card:hover {
-
-      transform:
-        translateY(-12px)
-        scale(1.02);
-
-      box-shadow:
-        0 30px 70px
-        rgba(170,30,85,.18);
-
-    }
-
-
-    .menu-number {
-
-      position: absolute;
-
-      right: 20px;
-      top: 10px;
-
-      font-family: Kanit;
-
-      font-size: 100px;
-
-      font-weight: 700;
-
-      color: rgba(216,27,96,.06);
-
-    }
-
-
-    .menu-icon {
-
-      width: 70px;
-      height: 70px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 22px;
-
-      color: white;
-
-      font-size: 30px;
-
-      margin-bottom: 25px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #b31255,
-          #f06292
-        );
-
-      box-shadow:
-        0 15px 30px
-        rgba(216,27,96,.25);
-
-    }
-
-
-    .menu-card h3 {
-
-      font-family: Kanit;
-
-      font-size: 25px;
-
-      color: var(--text-dark);
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .menu-card p {
-
-      font-size: 14px;
-
-      line-height: 1.8;
-
-      color: #866677;
-
-    }
-
-
-    .menu-arrow {
-
-      position: absolute;
-
-      right: 25px;
-
-      bottom: 22px;
-
-      color: var(--pink-main);
-
-      font-size: 25px;
-
-      transition: .3s;
-
-    }
-
-
-    .menu-card:hover .menu-arrow {
-
-      transform: translateX(7px);
-
-    }
-
-
-    /* ================================
-       PROFILE
-    ================================= */
-
-    .profile {
-
-      display: grid;
-
-      grid-template-columns:
-        350px 1fr;
-
-      gap: 50px;
-
-      align-items: center;
-
-    }
-
-
-    .profile-image {
-
-      height: 430px;
-
-      border-radius: 35px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 80px;
-
-      color: #c83c70;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffd0df,
-          #fff3f7
-        );
-
-      box-shadow:
-        0 30px 70px
-        rgba(125,25,65,.13);
-
-      position: relative;
-
-      overflow: hidden;
-
-    }
-
-
-    .profile-image::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 280px;
-      height: 280px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid
-        rgba(216,27,96,.15);
-
-    }
-
-
-    .profile-text h2 {
-
-      font-family: Kanit;
-
-      font-size: 48px;
-
-      color: var(--text-dark);
-
-      margin-bottom: 15px;
-
-    }
-
-
-    .profile-text h2 span {
-
-      color: var(--pink-main);
-
-    }
-
-
-    .profile-text p {
-
-      line-height: 2;
-
-      margin-bottom: 25px;
-
-    }
-
-
-    .info-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
-      gap: 15px;
-
-    }
-
-
-    .info {
-
-      padding: 18px;
-
-      border-radius: 18px;
-
-      background:
-        rgba(255,255,255,.65);
-
-      border:
-        1px solid
-        rgba(216,27,96,.08);
-
-    }
-
-
-    .info strong {
-
-      display: block;
-
-      color: var(--pink-main);
-
-      margin-bottom: 5px;
-
-    }
-
-
-    /* ================================
-       CONTENT SECTIONS
-    ================================= */
-
-    .content-box {
-
-      margin-top: 30px;
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 25px;
-
-    }
-
-
-    .content-card {
-
-      padding: 30px;
-
-      border-radius: 25px;
-
-      background:
-        rgba(255,255,255,.68);
-
-      border:
-        1px solid
-        rgba(255,255,255,.9);
-
-      box-shadow:
-        0 15px 45px
-        rgba(100,20,50,.08);
-
-      transition: .3s;
-
-    }
-
-
-    .content-card:hover {
-
-      transform: translateY(-8px);
-
-      box-shadow:
-        0 25px 55px
-        rgba(150,25,75,.15);
-
-    }
-
-
-    .content-card .icon {
-
-      font-size: 35px;
-
-      margin-bottom: 15px;
-
-    }
-
-
-    .content-card h3 {
-
-      font-family: Kanit;
-
-      color: var(--pink-dark);
-
-      font-size: 23px;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .content-card p {
-
-      line-height: 1.8;
-
-      font-size: 14px;
-
-    }
-
-
-    /* ================================
-       QUOTE
-    ================================= */
-
-    .quote {
-
-      margin: 100px auto;
-
-      max-width: 1000px;
-
-      padding: 65px 50px;
-
-      text-align: center;
-
-      border-radius: 35px;
-
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #9e174e,
-          #e83e78
-        );
-
-      box-shadow:
-        0 30px 70px
-        rgba(180,25,80,.25);
-
-      position: relative;
-
-      overflow: hidden;
-
-    }
-
-
-    .quote::before {
-
-      content: "“";
-
-      position: absolute;
-
-      font-family: Georgia;
-
-      font-size: 250px;
-
-      top: -100px;
-
-      left: 10px;
-
-      color: rgba(255,255,255,.08);
-
-    }
-
-
-    .quote h2 {
-
-      font-family: Kanit;
-
-      font-size: 35px;
-
-      margin-bottom: 15px;
-
-    }
-
-
-    .quote p {
-
-      line-height: 1.9;
-
-      opacity: .9;
-
-    }
-
-
-    /* ================================
-       FOOTER
-    ================================= */
-
-    footer {
-
-      padding: 50px 7%;
-
-      text-align: center;
-
-      color: #9a687b;
-
-      border-top:
-        1px solid
-        rgba(216,27,96,.08);
-
-      background:
-        rgba(255,255,255,.45);
-
-    }
-
-
-    footer strong {
-
-      color: var(--pink-main);
-
-    }
-
-
-    /* ================================
-       RESPONSIVE
-    ================================= */
-
-    @media(max-width:1000px) {
-
-      .menu-grid {
-
-        grid-template-columns:
-          repeat(2,1fr);
-
-      }
-
-      .profile {
-
-        grid-template-columns:1fr;
-
-      }
-
-      .profile-image {
-
-        max-width: 450px;
-
-        margin: auto;
-
-        width: 100%;
-
-      }
-
-      .content-box {
-
-        grid-template-columns:
-          repeat(2,1fr);
-
-      }
-
-    }
-
-
-    @media(max-width:600px) {
-
-      nav {
-
-        padding: 15px 5%;
-
-      }
-
-      .logo {
-
-        font-size: 17px;
-
-      }
-
-      .hero {
-
-        padding: 70px 5%;
-
-      }
-
-      h1 {
-
-        font-size: 55px;
-
-      }
-
-      .hero-description {
-
-        font-size: 15px;
-
-      }
-
-      .section {
-
-        padding: 60px 5%;
-
-      }
-
-      .section-title h2 {
-
-        font-size: 35px;
-
-      }
-
-      .menu-grid {
-
-        grid-template-columns:1fr;
-
-      }
-
-      .content-box {
-
-        grid-template-columns:1fr;
-
-      }
-
-      .profile-text h2 {
-
-        font-size: 38px;
-
-      }
-
-      .info-grid {
-
-        grid-template-columns:1fr;
-
-      }
-
-      .quote {
-
-        margin: 60px 5%;
-
-        padding: 50px 25px;
-
-      }
-
-    }
-
-  </style>
+    </style>
 
 </head>
 
@@ -1048,660 +470,506 @@
 <body>
 
 
-  <!-- BACKGROUND -->
+    <!-- NAVIGATION -->
 
-  <div class="background">
+    <nav>
 
-    <div class="orb orb1"></div>
-
-    <div class="orb orb2"></div>
-
-    <div class="orb orb3"></div>
-
-  </div>
-
-
-
-  <!-- NAVBAR -->
-
-  <nav>
-
-    <div class="logo">
-
-      <div class="logo-icon">
-        P
-      </div>
-
-      MY PORTFOLIO
-
-    </div>
-
-
-    <a href="index.html" class="back">
-
-      ← กลับหน้าหลัก
-
-    </a>
-
-  </nav>
-
-
-
-  <!-- HERO -->
-
-  <header class="hero">
-
-    <div class="hero-content">
-
-      <div class="badge">
-
-        ✦ WELCOME TO MY PORTFOLIO ✦
-
-      </div>
-
-
-      <h1>
-
-        My
-
-        <span>
-
-          Portfolio
-
-        </span>
-
-      </h1>
-
-
-      <p class="hero-description">
-
-        แฟ้มสะสมผลงานที่สะท้อนตัวตน ความสามารถ
-        ประสบการณ์ และความตั้งใจของฉัน
-        ทุกผลงานคืออีกหนึ่งก้าวของการเรียนรู้
-        และทุกประสบการณ์คือเรื่องราวที่มีความหมาย
-
-      </p>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- MENU -->
-
-  <section class="section">
-
-    <div class="section-title">
-
-      <small>
-
-        EXPLORE MY JOURNEY
-
-      </small>
-
-      <h2>
-
-        แฟ้มสะสมผลงาน
-
-      </h2>
-
-    </div>
-
-
-
-    <div class="menu-grid">
-
-
-      <!-- PROFILE -->
-
-      <a href="#profile" class="menu-card">
-
-        <div class="menu-number">
-          01
+        <div class="logo">
+            ✦ MY PORTFOLIO
         </div>
 
-        <div class="menu-icon">
-          ♡
+        <a href="index.html" class="back">
+            ← หน้าหลัก
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✦ WELCOME TO MY PORTFOLIO ✦
+            </div>
+
+            <h1>
+                My <span>Portfolio</span>
+            </h1>
+
+            <p>
+                ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน
+                ที่รวบรวมเรื่องราว ประสบการณ์ ความสามารถ
+                กิจกรรม ผลงานจิตอาสา และผลงานด้านวิชาการ
+                ทุกผลงานคือความตั้งใจและอีกหนึ่งก้าวของการเรียนรู้
+            </p>
+
         </div>
 
-        <h3>
-          ประวัติส่วนตัว
-        </h3>
+    </section>
 
-        <p>
 
-          ทำความรู้จักตัวตน
-          ประวัติการศึกษา
-          ความสนใจ และเป้าหมายของฉัน
+    <!-- MENU -->
 
-        </p>
+    <section class="section">
 
-        <div class="menu-arrow">
-          →
+        <div class="title">
+
+            <small>
+                EXPLORE MY JOURNEY
+            </small>
+
+            <h2>
+                แฟ้มสะสมผลงาน
+            </h2>
+
         </div>
 
-      </a>
+
+        <div class="cards">
 
 
+            <a href="#profile" class="card">
 
-      <!-- ACTIVITIES -->
+                <div class="icon">
+                    ♡
+                </div>
 
-      <a href="#activities" class="menu-card">
+                <h3>
+                    ประวัติส่วนตัว
+                </h3>
 
-        <div class="menu-number">
-          02
+                <p>
+                    ข้อมูลส่วนตัว ประวัติการศึกษา
+                    ความสนใจ ความสามารถ และเป้าหมายในอนาคต
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#activities" class="card">
+
+                <div class="icon">
+                    ✦
+                </div>
+
+                <h3>
+                    ผลงานด้านกิจกรรม
+                </h3>
+
+                <p>
+                    รวมกิจกรรม การแข่งขัน
+                    การทำงานร่วมกับผู้อื่น และประสบการณ์ต่าง ๆ
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#volunteer" class="card">
+
+                <div class="icon">
+                    ♡
+                </div>
+
+                <h3>
+                    ผลงานด้านจิตอาสา
+                </h3>
+
+                <p>
+                    กิจกรรมเพื่อสังคม การแบ่งปัน
+                    และการช่วยเหลือผู้อื่น
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#academic" class="card">
+
+                <div class="icon">
+                    ✧
+                </div>
+
+                <h3>
+                    ผลงานด้านวิชาการ
+                </h3>
+
+                <p>
+                    โครงงาน ผลงานการเรียน
+                    การแข่งขัน และรางวัลทางวิชาการ
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
         </div>
 
-        <div class="menu-icon">
-          ✦
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <section class="section" id="profile">
+
+        <div class="title">
+
+            <small>
+                ABOUT ME
+            </small>
+
+            <h2>
+                ประวัติส่วนตัว
+            </h2>
+
         </div>
 
-        <h3>
-          ผลงานด้านกิจกรรม
-        </h3>
 
-        <p>
+        <div class="content">
 
-          รวมกิจกรรม
-          ประสบการณ์การทำงานร่วมกับผู้อื่น
-          และสิ่งที่ได้เรียนรู้
 
-        </p>
+            <div class="content-card">
 
-        <div class="menu-arrow">
-          →
+                <div class="emoji">
+                    👤
+                </div>
+
+                <h3>
+                    ข้อมูลส่วนตัว
+                </h3>
+
+                <p>
+                    ชื่อ - นามสกุล : Your Name<br>
+                    ชื่อเล่น : Your Nickname<br>
+                    วันเกิด : XX / XX / XXXX
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🎓
+                </div>
+
+                <h3>
+                    ประวัติการศึกษา
+                </h3>
+
+                <p>
+                    โรงเรียน : Your School<br>
+                    ระดับชั้น : Your Level<br>
+                    สายการเรียน : Your Program
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    💡
+                </div>
+
+                <h3>
+                    ความสนใจ
+                </h3>
+
+                <p>
+                    Technology • Design • Science
+                    • Arts • Languages
+                </p>
+
+            </div>
+
+
         </div>
 
-      </a>
+    </section>
 
 
+    <!-- ACTIVITIES -->
 
-      <!-- VOLUNTEER -->
+    <section class="section" id="activities">
 
-      <a href="#volunteer" class="menu-card">
+        <div class="title">
 
-        <div class="menu-number">
-          03
+            <small>
+                ACTIVITIES
+            </small>
+
+            <h2>
+                ผลงานด้านกิจกรรม
+            </h2>
+
         </div>
 
-        <div class="menu-icon">
-          ♡
+
+        <div class="content">
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🏆
+                </div>
+
+                <h3>
+                    กิจกรรมที่ 01
+                </h3>
+
+                <p>
+                    ใส่ชื่อกิจกรรม
+                    รายละเอียด หน้าที่
+                    และสิ่งที่ได้รับจากกิจกรรม
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🎨
+                </div>
+
+                <h3>
+                    กิจกรรมที่ 02
+                </h3>
+
+                <p>
+                    ใส่รายละเอียดกิจกรรม
+                    และประสบการณ์ที่ได้รับ
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🌟
+                </div>
+
+                <h3>
+                    กิจกรรมที่ 03
+                </h3>
+
+                <p>
+                    ใส่กิจกรรมการแข่งขัน
+                    ชมรม ค่าย หรือกิจกรรมอื่น ๆ
+                </p>
+
+            </div>
+
+
         </div>
 
-        <h3>
-          ผลงานด้านจิตอาสา
-        </h3>
+    </section>
 
-        <p>
 
-          เรื่องราวการแบ่งปัน
-          การช่วยเหลือสังคม
-          และการทำประโยชน์เพื่อผู้อื่น
+    <!-- VOLUNTEER -->
 
-        </p>
+    <section class="section" id="volunteer">
 
-        <div class="menu-arrow">
-          →
+        <div class="title">
+
+            <small>
+                VOLUNTEER
+            </small>
+
+            <h2>
+                ผลงานด้านจิตอาสา
+            </h2>
+
         </div>
 
-      </a>
+
+        <div class="content">
 
 
+            <div class="content-card">
 
-      <!-- ACADEMIC -->
+                <div class="emoji">
+                    💗
+                </div>
 
-      <a href="#academic" class="menu-card">
+                <h3>
+                    กิจกรรมจิตอาสา
+                </h3>
 
-        <div class="menu-number">
-          04
+                <p>
+                    ใส่รายละเอียดกิจกรรม
+                    วันเวลา สถานที่ และหน้าที่ของคุณ
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🌱
+                </div>
+
+                <h3>
+                    เพื่อสังคม
+                </h3>
+
+                <p>
+                    ใส่ประสบการณ์การช่วยเหลือ
+                    ชุมชน โรงเรียน หรือสิ่งแวดล้อม
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🤝
+                </div>
+
+                <h3>
+                    การแบ่งปัน
+                </h3>
+
+                <p>
+                    เล่าเรื่องราวการช่วยเหลือผู้อื่น
+                    และสิ่งที่คุณได้เรียนรู้
+                </p>
+
+            </div>
+
+
         </div>
 
-        <div class="menu-icon">
-          ✧
+    </section>
+
+
+    <!-- ACADEMIC -->
+
+    <section class="section" id="academic">
+
+        <div class="title">
+
+            <small>
+                ACADEMIC
+            </small>
+
+            <h2>
+                ผลงานด้านวิชาการ
+            </h2>
+
         </div>
 
-        <h3>
-          ผลงานด้านวิชาการ
-        </h3>
 
-        <p>
+        <div class="content">
 
-          ผลงานทางการเรียน
-          โครงงาน รางวัล
-          และความสามารถทางวิชาการ
 
-        </p>
+            <div class="content-card">
 
-        <div class="menu-arrow">
-          →
+                <div class="emoji">
+                    📚
+                </div>
+
+                <h3>
+                    โครงงาน
+                </h3>
+
+                <p>
+                    ใส่ชื่อโครงงาน
+                    แนวคิด วิธีการทำงาน
+                    และผลลัพธ์
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    🥇
+                </div>
+
+                <h3>
+                    รางวัล
+                </h3>
+
+                <p>
+                    ใส่ชื่อการแข่งขัน
+                    ระดับการแข่งขัน
+                    และรางวัลที่ได้รับ
+                </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="emoji">
+                    💡
+                </div>
+
+                <h3>
+                    ผลงานการเรียน
+                </h3>
+
+                <p>
+                    รวมรายงาน งานวิจัย
+                    สิ่งประดิษฐ์ และผลงานที่ภาคภูมิใจ
+                </p>
+
+            </div>
+
+
         </div>
 
-      </a>
+    </section>
 
 
-    </div>
+    <!-- QUOTE -->
 
-  </section>
-
-
-
-  <!-- PROFILE -->
-
-  <section class="section" id="profile">
-
-    <div class="section-title">
-
-      <small>
-        ABOUT ME
-      </small>
-
-      <h2>
-        ประวัติส่วนตัว
-      </h2>
-
-    </div>
-
-
-    <div class="profile">
-
-
-      <div class="profile-image">
-
-        📷
-
-      </div>
-
-
-      <div class="profile-text">
+    <section class="quote">
 
         <h2>
-
-          สวัสดีครับ/ค่ะ
-
-          <span>
-            ฉันคือ Your Name
-          </span>
-
+            Every Achievement Starts With A Dream.
         </h2>
 
-
         <p>
-
-          ฉันเป็นนักเรียน/นักศึกษาที่มีความสนใจในการเรียนรู้
-          และพัฒนาตนเองอยู่เสมอ
-          เชื่อว่าทุกประสบการณ์สามารถกลายเป็นบทเรียน
-          และทุกความพยายามสามารถสร้างความเปลี่ยนแปลงได้
-
+            ทุกความสำเร็จเริ่มต้นจากความฝัน
+            ความพยายาม และความกล้าที่จะลงมือทำ
         </p>
 
+    </section>
 
-        <div class="info-grid">
 
-          <div class="info">
+    <!-- FOOTER -->
 
-            <strong>
-              ชื่อ - นามสกุล
-            </strong>
+    <footer>
 
-            Your Name
+        © 2026
+        <strong>Your Name</strong>
+        — My Personal Portfolio
 
-          </div>
-
-
-          <div class="info">
-
-            <strong>
-              โรงเรียน
-            </strong>
-
-            Your School
-
-          </div>
-
-
-          <div class="info">
-
-            <strong>
-              สายการเรียน
-            </strong>
-
-            Your Program
-
-          </div>
-
-
-          <div class="info">
-
-            <strong>
-              ความสนใจ
-            </strong>
-
-            Technology / Arts / Science
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ACTIVITIES -->
-
-  <section class="section" id="activities">
-
-    <div class="section-title">
-
-      <small>
-        ACTIVITIES
-      </small>
-
-      <h2>
-        ผลงานด้านกิจกรรม
-      </h2>
-
-    </div>
-
-
-    <div class="content-box">
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🏆
-        </div>
-
-        <h3>
-          กิจกรรมที่ 01
-        </h3>
-
-        <p>
-
-          ใส่รายละเอียดกิจกรรม
-          ตำแหน่ง หน้าที่
-          และสิ่งที่ได้รับจากกิจกรรมนี้
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🎨
-        </div>
-
-        <h3>
-          กิจกรรมที่ 02
-        </h3>
-
-        <p>
-
-          เพิ่มกิจกรรมที่ภาคภูมิใจ
-          พร้อมเล่าประสบการณ์
-          และบทบาทของคุณ
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🌟
-        </div>
-
-        <h3>
-          กิจกรรมที่ 03
-        </h3>
-
-        <p>
-
-          ใส่กิจกรรมการแข่งขัน
-          ชมรม ค่าย
-          หรือกิจกรรมภายในโรงเรียน
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- VOLUNTEER -->
-
-  <section class="section" id="volunteer">
-
-    <div class="section-title">
-
-      <small>
-        VOLUNTEER
-      </small>
-
-      <h2>
-        ผลงานด้านจิตอาสา
-      </h2>
-
-    </div>
-
-
-    <div class="content-box">
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          💗
-        </div>
-
-        <h3>
-          กิจกรรมจิตอาสา
-        </h3>
-
-        <p>
-
-          อธิบายกิจกรรมจิตอาสา
-          สถานที่ วันเวลา
-          หน้าที่ และสิ่งที่ได้เรียนรู้
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🌱
-        </div>
-
-        <h3>
-          ทำประโยชน์เพื่อสังคม
-        </h3>
-
-        <p>
-
-          ใส่ประสบการณ์การช่วยเหลือ
-          ชุมชน โรงเรียน
-          หรือสิ่งแวดล้อม
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🤝
-        </div>
-
-        <h3>
-          การแบ่งปัน
-        </h3>
-
-        <p>
-
-          บอกเล่าเรื่องราว
-          การช่วยเหลือผู้อื่น
-          และสิ่งที่ทำให้คุณภูมิใจ
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ACADEMIC -->
-
-  <section class="section" id="academic">
-
-    <div class="section-title">
-
-      <small>
-        ACADEMIC
-      </small>
-
-      <h2>
-        ผลงานด้านวิชาการ
-      </h2>
-
-    </div>
-
-
-    <div class="content-box">
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          📚
-        </div>
-
-        <h3>
-          โครงงาน
-        </h3>
-
-        <p>
-
-          ใส่ชื่อโครงงาน
-          แนวคิด วิธีการทำงาน
-          และผลลัพธ์ของโครงงาน
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          🥇
-        </div>
-
-        <h3>
-          รางวัลและการแข่งขัน
-        </h3>
-
-        <p>
-
-          ใส่ชื่อการแข่งขัน
-          ระดับการแข่งขัน
-          ปีที่ได้รับรางวัล
-          และผลงานที่ได้รับ
-
-        </p>
-
-      </div>
-
-
-      <div class="content-card">
-
-        <div class="icon">
-          💡
-        </div>
-
-        <h3>
-          ผลงานการเรียนรู้
-        </h3>
-
-        <p>
-
-          รวมผลงาน รายงาน
-          งานวิจัย สิ่งประดิษฐ์
-          หรือผลงานที่แสดงถึงความสามารถ
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- QUOTE -->
-
-  <section class="quote">
-
-    <h2>
-      Every Achievement Starts With A Dream.
-    </h2>
-
-    <p>
-
-      ทุกความสำเร็จเริ่มต้นจากความฝัน
-      ความพยายาม และความกล้าที่จะลงมือทำ
-
-    </p>
-
-  </section>
-
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <p>
-
-      © 2026
-
-      <strong>
-        Your Name
-      </strong>
-
-      — My Personal Portfolio
-
-    </p>
-
-    <p style="margin-top:10px;">
-
-      Designed with ♡ and passion
-
-    </p>
-
-  </footer>
-
+    </footer>
 
 
 </body>
