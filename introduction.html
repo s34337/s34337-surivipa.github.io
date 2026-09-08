@@ -1,1 +1,606 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>คำนำ | My Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            min-height: 100vh;
+
+            color: #4d2637;
+
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(255, 188, 214, 0.65),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 85%,
+                    rgba(240, 151, 185, 0.35),
+                    transparent 35%
+                ),
+                #fff7fa;
+
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            padding: 17px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(255, 247, 250, 0.82);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(142, 20, 76, 0.12);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 24px;
+
+            color: #87154b;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            color: #87154b;
+
+            border:
+                1px solid rgba(135, 21, 75, 0.3);
+
+            padding: 7px 18px;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #87154b;
+            color: white;
+
+            transform: translateX(-4px);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 130px 20px 80px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1050px;
+
+            display: grid;
+
+            grid-template-columns: 0.75fr 1.25fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .visual {
+            position: relative;
+
+            min-height: 480px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .film-box {
+            position: relative;
+
+            width: 310px;
+            height: 410px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #a7195b,
+                    #e48cad
+                );
+
+            border-radius: 8px;
+
+            transform: rotate(-4deg);
+
+            box-shadow:
+                25px 25px 0 #f5c3d5,
+                0 30px 60px rgba(105, 24, 58, 0.25);
+
+            overflow: hidden;
+        }
+
+        /* Film holes */
+
+        .film-box::before,
+        .film-box::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            width: 30px;
+            height: 100%;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    #fff7fa 0px,
+                    #fff7fa 14px,
+                    transparent 14px,
+                    transparent 35px
+                );
+
+            opacity: 0.8;
+        }
+
+        .film-box::before {
+            left: 15px;
+        }
+
+        .film-box::after {
+            right: 15px;
+        }
+
+        .film-content {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 55px;
+        }
+
+        .film-content .clapper {
+            font-size: 65px;
+
+            margin-bottom: 20px;
+
+            filter:
+                drop-shadow(
+                    0 8px 10px
+                    rgba(0,0,0,0.2)
+                );
+        }
+
+        .film-content h3 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 30px;
+
+            letter-spacing: 2px;
+        }
+
+        .film-content p {
+            margin-top: 5px;
+
+            font-size: 14px;
+
+            opacity: 0.9;
+
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           DECORATION
+        ========================= */
+
+        .circle {
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(135, 21, 75, 0.25);
+        }
+
+        .circle.one {
+            top: 35px;
+            left: 20px;
+        }
+
+        .circle.two {
+            bottom: 25px;
+            right: 20px;
+
+            width: 60px;
+            height: 60px;
+
+            background:
+                rgba(224, 120, 162, 0.12);
+        }
+
+        /* =========================
+           RIGHT SIDE
+        ========================= */
+
+        .content {
+            position: relative;
+        }
+
+        .small-title {
+            color: #b52c68;
+
+            font-size: 14px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                clamp(50px, 7vw, 78px);
+
+            line-height: 1;
+
+            color: #861548;
+
+            margin-bottom: 25px;
+        }
+
+        .line {
+            width: 75px;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8f174f,
+                    #e68daf
+                );
+
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           INTRO TEXT
+        ========================= */
+
+        .intro-text {
+            background:
+                rgba(255,255,255,0.65);
+
+            border:
+                1px solid
+                rgba(184, 57, 107, 0.15);
+
+            border-left:
+                5px solid #a61b59;
+
+            padding: 28px 32px;
+
+            border-radius: 5px 18px 18px 5px;
+
+            box-shadow:
+                0 20px 45px
+                rgba(112, 29, 65, 0.08);
+        }
+
+        .intro-text p {
+            font-size: 17px;
+
+            line-height: 2;
+
+            color: #644653;
+
+            font-weight: 300;
+
+            margin-bottom: 7px;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #941550;
+
+            font-weight: 500;
+        }
+
+        /* =========================
+           BOTTOM
+        ========================= */
+
+        .signature {
+            margin-top: 30px;
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 18px;
+
+            color: #8f174f;
+
+            font-style: italic;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 14px 18px;
+            }
+
+            .wrapper {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .visual {
+                min-height: 390px;
+            }
+
+            .film-box {
+                width: 250px;
+                height: 330px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .line {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .intro-text {
+                text-align: left;
+            }
+
+            .signature {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .film-box {
+                width: 210px;
+                height: 290px;
+            }
+
+            .film-content {
+                padding: 40px;
+            }
+
+            .film-content .clapper {
+                font-size: 45px;
+            }
+
+            .film-content h3 {
+                font-size: 24px;
+            }
+
+            .intro-text {
+                padding: 22px;
+            }
+
+            .intro-text p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <div class="nav-logo">
+            PORTFOLIO
+        </div>
+
+        <a
+            href="portfolio.html"
+            class="back-btn"
+        >
+            ← กลับหน้าหลัก
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <div class="wrapper">
+
+            <!-- =====================
+                 VISUAL
+            ====================== -->
+
+            <div class="visual">
+
+                <div class="circle one"></div>
+
+                <div class="circle two"></div>
+
+                <div class="film-box">
+
+                    <div class="film-content">
+
+                        <div class="clapper">
+                            🎬
+                        </div>
+
+                        <h3>
+                            MY STORY
+                        </h3>
+
+                        <p>
+                            A DREAM BEHIND THE CAMERA
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 CONTENT
+            ====================== -->
+
+            <div class="content">
+
+                <div class="small-title">
+                    01 • INTRODUCTION
+                </div>
+
+                <h1>
+                    คำนำ
+                </h1>
+
+                <div class="line"></div>
+
+
+                <div class="intro-text">
+
+                    <p>
+                        ฉันเป็นคนหนึ่งที่หลงใหลในโลกของ
+                        <span class="highlight">
+                            ภาพยนตร์และการเล่าเรื่อง
+                        </span>
+                    </p>
+
+                    <p>
+                        ฉันเชื่อว่าหนังหนึ่งเรื่องสามารถถ่ายทอดความรู้สึกและความคิดของคนได้มากกว่าคำพูด
+                    </p>
+
+                    <p>
+                        ความฝันของฉันคือการได้เข้าศึกษาต่อในคณะนิเทศศาสตร์
+                    </p>
+
+                    <p>
+                        เพื่อเรียนรู้ทั้งการสร้างสรรค์ การสื่อสาร และศิลปะเบื้องหลังภาพยนตร์
+                    </p>
+
+                    <p>
+                        ฉันอยากนำความรู้เหล่านั้นมาพัฒนาตัวเองให้เป็นผู้สร้างผลงานที่มีเอกลักษณ์
+                    </p>
+
+                    <p>
+                        เป้าหมายในอนาคตของฉันคือการก้าวไปเป็น
+                        <span class="highlight">
+                            ผู้กำกับภาพยนตร์
+                        </span>
+                    </p>
+
+                    <p>
+                        ฉันอยากสร้างหนังที่ทำให้ผู้ชมรู้สึก เชื่อมโยง และจดจำเรื่องราวไปได้หลังจากหนังจบ
+                    </p>
+
+                    <p>
+                        Portfolio เล่มนี้จึงเป็นจุดเริ่มต้นเล็ก ๆ ของการเดินทางไปสู่ความฝันของฉัน
+                    </p>
+
+                </div>
+
+
+                <div class="signature">
+                    — This is where my story begins.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
