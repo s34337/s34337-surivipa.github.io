@@ -78,4 +78,619 @@
             justify-content: center;
             text-align: center;
 
-            padding: 120
+            padding: 120px 20px 80px;
+
+            background:
+                radial-gradient(circle at 20% 20%, #ffd9e8 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, #f8c5da 0%, transparent 30%),
+                linear-gradient(135deg, #fff9fc, #ffeef5);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .logo {
+            width: 105px;
+            height: 105px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg, #9e1b55, #d44a83);
+            color: white;
+
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            font-weight: bold;
+
+            box-shadow:
+                0 15px 40px rgba(143, 23, 79, 0.25),
+                inset 0 0 0 5px rgba(255,255,255,0.25);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 7vw, 76px);
+            color: #861548;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #a0446b;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #765565;
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .scroll-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 13px 32px;
+
+            background: #8f174f;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 30px;
+
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(143, 23, 79, 0.25);
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-4px);
+            background: #b52c68;
+            box-shadow: 0 15px 35px rgba(143, 23, 79, 0.35);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+        section {
+            padding: 110px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: #b72b68;
+            font-size: 15px;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 43px;
+            color: #861548;
+            margin-top: 5px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            margin: 18px auto 0;
+
+            background: linear-gradient(
+                90deg,
+                #8f174f,
+                #e29ab8
+            );
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+        #introduction {
+            background: #ffffff;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #fff7fa, #ffeaf2);
+
+            border-radius: 25px;
+            padding: 50px;
+
+            border: 1px solid #f2cad9;
+
+            box-shadow: 0 20px 50px rgba(100, 30, 60, 0.08);
+
+            text-align: center;
+        }
+
+        .intro-box p {
+            font-size: 18px;
+            color: #684858;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* =========================
+           PORTFOLIO
+        ========================= */
+        #portfolio {
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff3f7,
+                    #ffe9f1
+                );
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+
+            border: 1px solid #f1ccda;
+
+            box-shadow: 0 15px 35px rgba(100, 30, 60, 0.08);
+
+            transition: 0.35s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(100, 30, 60, 0.15);
+        }
+
+        .project-image {
+            height: 190px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a61b59,
+                    #e98bb1
+                );
+
+            color: white;
+
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+        }
+
+        .portfolio-card-content {
+            padding: 25px;
+        }
+
+        .portfolio-card h3 {
+            color: #8f174f;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card p {
+            color: #765565;
+            font-size: 15px;
+        }
+
+        /* =========================
+           PROFILE
+        ========================= */
+        #profile {
+            background: #fff;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #fff8fb,
+                #ffedf4
+            );
+
+            border-radius: 30px;
+            padding: 50px;
+
+            border: 1px solid #f1cad9;
+
+            box-shadow: 0 20px 50px rgba(100, 30, 60, 0.08);
+        }
+
+        .profile-picture {
+            width: 240px;
+            height: 240px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8f174f,
+                    #e993b5
+                );
+
+            color: white;
+
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+
+            border: 8px solid white;
+
+            box-shadow:
+                0 15px 35px rgba(143, 23, 79, 0.2);
+        }
+
+        .profile-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #861548;
+            margin-bottom: 15px;
+        }
+
+        .profile-info p {
+            color: #6e5060;
+            margin-bottom: 20px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            color: #684858;
+        }
+
+        .info-list strong {
+            color: #8f174f;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #74123f;
+            color: #fce8f0;
+
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 12px 10px;
+            }
+
+            nav a {
+                padding: 8px 13px;
+                font-size: 14px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 35px 25px;
+            }
+
+            .intro-box {
+                padding: 35px 25px;
+            }
+
+            section {
+                padding: 80px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <nav>
+        <ul>
+            <li>
+                <a href="#introduction">01 คำนำ</a>
+            </li>
+
+            <li>
+                <a href="#portfolio">02 ผลงานของฉัน</a>
+            </li>
+
+            <li>
+                <a href="#profile">03 ประวัติส่วนตัว</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo">
+                P
+            </div>
+
+            <h1>My Portfolio</h1>
+
+            <h2>แฟ้มสะสมผลงานของฉัน</h2>
+
+            <p>
+                ยินดีต้อนรับเข้าสู่ Portfolio ของฉัน
+                พื้นที่สำหรับนำเสนอผลงาน ประสบการณ์
+                ความสามารถ และเรื่องราวที่สะท้อนตัวตนของฉัน
+            </p>
+
+            <a href="#introduction" class="scroll-button">
+                เข้าสู่ Portfolio
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         INTRODUCTION
+    ========================== -->
+    <section id="introduction">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>01 • INTRODUCTION</span>
+                <h2>คำนำ</h2>
+            </div>
+
+            <div class="intro-box">
+
+                <p>
+                    Portfolio ฉบับนี้จัดทำขึ้นเพื่อรวบรวมและนำเสนอ
+                    ผลงาน ความสามารถ ประสบการณ์ และความสนใจของฉัน
+                    โดยหวังว่าผลงานเหล่านี้จะช่วยสะท้อนถึงความตั้งใจ
+                    ความคิดสร้างสรรค์ และการพัฒนาตนเองอย่างต่อเนื่อง
+                </p>
+
+                <br>
+
+                <p>
+                    ทุกผลงานที่อยู่ภายใน Portfolio เล่มนี้
+                    ล้วนเป็นส่วนหนึ่งของการเรียนรู้และประสบการณ์
+                    ที่ช่วยให้ฉันเติบโตและพร้อมที่จะก้าวไปสู่
+                    เป้าหมายในอนาคต
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
+    <section id="portfolio">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>02 • MY WORK</span>
+                <h2>ผลงานของฉัน</h2>
+            </div>
+
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card">
+
+                    <div class="project-image">
+                        PROJECT 01
+                    </div>
+
+                    <div class="portfolio-card-content">
+
+                        <h3>ผลงานที่ 01</h3>
+
+                        <p>
+                            ใส่รายละเอียดเกี่ยวกับผลงาน
+                            เช่น ชื่อโครงการ แนวคิด
+                            และสิ่งที่ได้เรียนรู้จากการทำงาน
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portfolio-card">
+
+                    <div class="project-image">
+                        PROJECT 02
+                    </div>
+
+                    <div class="portfolio-card-content">
+
+                        <h3>ผลงานที่ 02</h3>
+
+                        <p>
+                            ใส่รายละเอียดเกี่ยวกับผลงาน
+                            ความสามารถที่ใช้ และผลลัพธ์
+                            ที่เกิดขึ้นจากโครงการนี้
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portfolio-card">
+
+                    <div class="project-image">
+                        PROJECT 03
+                    </div>
+
+                    <div class="portfolio-card-content">
+
+                        <h3>ผลงานที่ 03</h3>
+
+                        <p>
+                            ใส่รายละเอียดผลงานเพิ่มเติม
+                            พร้อมอธิบายบทบาท หน้าที่
+                            และประสบการณ์ที่ได้รับ
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+    <section id="profile">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>03 • ABOUT ME</span>
+                <h2>ประวัติส่วนตัว</h2>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-picture">
+                    ME
+                </div>
+
+                <div class="profile-info">
+
+                    <h3>ชื่อ - นามสกุล</h3>
+
+                    <p>
+                        แนะนำตัวสั้น ๆ เช่น
+                        นักเรียน / นักศึกษา / นักออกแบบ / โปรแกรมเมอร์
+                        พร้อมเขียนคำอธิบายเกี่ยวกับตัวเอง
+                    </p>
+
+                    <ul class="info-list">
+
+                        <li>
+                            <strong>ชื่อเล่น:</strong>
+                            ชื่อเล่นของคุณ
+                        </li>
+
+                        <li>
+                            <strong>วันเกิด:</strong>
+                            xx / xx / xxxx
+                        </li>
+
+                        <li>
+                            <strong>การศึกษา:</strong>
+                            โรงเรียน / มหาวิทยาลัย
+                        </li>
+
+                        <li>
+                            <strong>ความสนใจ:</strong>
+                            เทคโนโลยี, การออกแบบ, ศิลปะ ฯลฯ
+                        </li>
+
+                        <li>
+                            <strong>Email:</strong>
+                            your@email.com
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <h3>My Portfolio</h3>
+
+        <p>
+            © 2026 My Portfolio • Designed with passion
+        </p>
+
+    </footer>
+
+</body>
+</html>
