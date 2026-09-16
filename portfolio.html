@@ -91,6 +91,75 @@
             transform: translateY(-2px);
         }
 
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+            position: fixed;
+
+            top: 90px;
+            left: 25px;
+
+            z-index: 999;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 20px;
+
+            text-decoration: none;
+
+            color: #8f174f;
+
+            background: rgba(255, 255, 255, 0.80);
+
+            border: 1px solid #f0c9d8;
+
+            border-radius: 30px;
+
+            font-size: 15px;
+            font-weight: 500;
+
+            box-shadow:
+                0 8px 25px rgba(143, 23, 79, 0.12);
+
+            backdrop-filter: blur(10px);
+
+            transition:
+                all 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8f174f,
+                    #d44a83
+                );
+
+            transform: translateX(-4px);
+
+            box-shadow:
+                0 12px 30px rgba(143, 23, 79, 0.25);
+        }
+
+        .back-button span {
+            font-size: 20px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .back-button:hover span {
+            transform: translateX(-4px);
+        }
+
+
         /* =========================
            MAIN
         ========================= */
@@ -113,6 +182,7 @@
 
             text-align: center;
         }
+
 
         /* =========================
            LOGO
@@ -149,6 +219,7 @@
                 inset 0 0 0 5px rgba(255,255,255,0.25);
         }
 
+
         /* =========================
            TITLE
         ========================= */
@@ -181,8 +252,10 @@
             color: #765565;
 
             font-size: 17px;
+
             font-weight: 300;
         }
+
 
         /* =========================
            MENU CARDS
@@ -204,7 +277,8 @@
 
             color: inherit;
 
-            background: rgba(255,255,255,0.75);
+            background:
+                rgba(255,255,255,0.75);
 
             border: 1px solid #f0c9d8;
 
@@ -274,6 +348,7 @@
             transform: translateX(8px);
         }
 
+
         /* =========================
            FOOTER
         ========================= */
@@ -302,6 +377,7 @@
             opacity: 0.85;
         }
 
+
         /* =========================
            RESPONSIVE
         ========================= */
@@ -314,11 +390,28 @@
 
             nav a {
                 padding: 8px 13px;
+
                 font-size: 14px;
             }
 
+            /* ปุ่มย้อนกลับบนมือถือ */
+
+            .back-button {
+                top: 105px;
+
+                left: 15px;
+
+                padding: 8px 15px;
+
+                font-size: 13px;
+            }
+
+            .back-button span {
+                font-size: 18px;
+            }
+
             main {
-                padding-top: 150px;
+                padding-top: 170px;
             }
 
             .menu {
@@ -328,6 +421,7 @@
             .logo {
                 width: 90px;
                 height: 90px;
+
                 font-size: 32px;
             }
 
@@ -335,10 +429,12 @@
                 font-size: 20px;
             }
         }
+
     </style>
 </head>
 
 <body>
+
 
     <!-- =========================
          NAVIGATION
@@ -370,16 +466,35 @@
 
 
     <!-- =========================
+         BACK TO HOME BUTTON
+    ========================== -->
+
+    <a href="index.html" class="back-button">
+
+        <span>←</span>
+
+        กลับหน้าหลัก
+
+    </a>
+
+
+    <!-- =========================
          MAIN
-    ========================= -->
+    ========================== -->
 
     <main>
 
         <div class="container">
 
+
+            <!-- LOGO -->
+
             <div class="logo">
                 P
             </div>
+
+
+            <!-- TITLE -->
 
             <h1>
                 My Portfolio
@@ -389,18 +504,24 @@
                 แฟ้มสะสมผลงานของฉัน
             </div>
 
+
+            <!-- DESCRIPTION -->
+
             <p class="description">
+
                 ยินดีต้อนรับเข้าสู่ Portfolio ของฉัน
                 สามารถเลือกหัวข้อด้านล่างเพื่อเข้าชม
                 คำนำ ผลงาน และประวัติส่วนตัว
+
             </p>
 
 
             <!-- =========================
                  MENU
-            ========================= -->
+            ========================== -->
 
             <div class="menu">
+
 
                 <!-- คำนำ -->
 
@@ -482,6 +603,7 @@
 
                 </a>
 
+
             </div>
 
         </div>
@@ -491,7 +613,7 @@
 
     <!-- =========================
          FOOTER
-    ========================= -->
+    ========================== -->
 
     <footer>
 
@@ -504,6 +626,7 @@
         </p>
 
     </footer>
+
 
 </body>
 </html>
